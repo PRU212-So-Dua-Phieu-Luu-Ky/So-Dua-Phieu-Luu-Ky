@@ -13,6 +13,7 @@ public class MobileJoystick : MonoBehaviour
     private Vector3 clickedPosition;
     private Vector3 move;
     private bool canControl;
+    private float moveMagnitude;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +57,7 @@ public class MobileJoystick : MonoBehaviour
 
         float canvasScale = GetComponentInParent<Canvas>().GetComponent<RectTransform>().localScale.x;
 
-        float moveMagnitude = direction.magnitude * moveFactor * canvasScale;
+        moveMagnitude = direction.magnitude * moveFactor * canvasScale;
 
         float absoluteWidth = joystickOutline.rect.width / 2;
         float realWidth = absoluteWidth * canvasScale;
