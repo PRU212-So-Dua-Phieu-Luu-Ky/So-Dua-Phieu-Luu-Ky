@@ -5074,8 +5074,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 807702575829301412}
-  - component: {fileID: 4569323307322272810}
-  - component: {fileID: 1122177446834271584}
+  - component: {fileID: 2703393003931820453}
+  - component: {fileID: 2540831132172525649}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -5101,7 +5101,7 @@ Transform:
   - {fileID: 7128560918119709027}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4569323307322272810
+--- !u!114 &2703393003931820453
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5110,11 +5110,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9118583195209620780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15b017631fece5a4da9aeee87b39d578, type: 3}
+  m_Script: {fileID: 11500000, guid: d5cb1ee62075b664eb4946bd7fe27f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
---- !u!114 &1122177446834271584
+--- !u!114 &2540831132172525649
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5123,7 +5123,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9118583195209620780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 552fbdba7b616d148bbe8a74b9c88045, type: 3}
+  m_Script: {fileID: 11500000, guid: c40361caad3040c43b4cc27bc94224ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyRenderer: {fileID: 5707455712949229110}

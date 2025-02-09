@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7121165796651177764}
   - component: {fileID: 8569320540084099439}
-  - component: {fileID: 7078741299338081605}
   - component: {fileID: 8046776701353703677}
   - component: {fileID: 3514323619063655734}
-  - component: {fileID: 3831709952924378833}
+  - component: {fileID: 46423223392490530}
+  - component: {fileID: 3177130920164130314}
+  - component: {fileID: 4189677522898118816}
   m_Layer: 0
   m_Name: Dave
   m_TagString: Untagged
@@ -64,20 +65,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7078741299338081605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4594986634523763602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf4e00460aa6d894192335163810c476, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mobileJoystick: {fileID: 0}
-  moveSpeed: 4
 --- !u!58 &8046776701353703677
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -127,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 8224050341984669251}
---- !u!114 &3831709952924378833
+--- !u!114 &46423223392490530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,9 +123,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 4594986634523763602}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98f50682997554644b49c27ad8365a3b, type: 3}
+  m_Script: {fileID: 11500000, guid: af89563b2e69c8c4c8043e4c13bc012f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
+--- !u!114 &3177130920164130314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4594986634523763602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d234302ec07404aa94a9adbdaa68e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4189677522898118816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4594986634523763602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0385824cd42488c46a4b9eed426524e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mobileJoystick: {fileID: 0}
+  moveSpeed: 3
 --- !u!1 &6987135587418367037
 GameObject:
   m_ObjectHideFlags: 0
