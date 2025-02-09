@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7078741299338081605}
   - component: {fileID: 8046776701353703677}
   - component: {fileID: 3514323619063655734}
+  - component: {fileID: 3831709952924378833}
   m_Layer: 0
   m_Name: Dave
   m_TagString: Untagged
@@ -111,8 +112,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.18160999, y: 1.5359981}
-  m_Radius: 0.7347777
+  m_Offset: {x: -0.018570662, y: 0.75230736}
+  m_Radius: 0.72430915
 --- !u!114 &3514323619063655734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +126,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a79f62c8f18be4e865ee5b839c844b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 8224050341984669251}
+--- !u!114 &3831709952924378833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4594986634523763602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f50682997554644b49c27ad8365a3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6987135587418367037
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +165,7 @@ Transform:
   m_GameObject: {fileID: 6987135587418367037}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18, y: 0.76, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []

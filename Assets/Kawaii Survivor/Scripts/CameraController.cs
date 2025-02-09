@@ -3,26 +3,25 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [Header("Elements")]
-    [SerializeField] private Transform target;
+    [SerializeField] private Transform targetPlayer;
 
     [Header("Settings")]
     [SerializeField] private Vector2 minMaxXY;
 
-    
-    void Start()
+    private void Start()
     {
-        //minMaxXY.x = 
+        //minMaxXY.x =
     }
 
     private void LateUpdate()
     {
-        if (target == null)
+        if (targetPlayer == null)
         {
-            Debug.LogWarning("No target has been specifided");
+            Debug.LogWarning("No Player has been specified");
 
             return;
         }
-        var cameraPosition = target.position;
+        var cameraPosition = targetPlayer.position;
 
         cameraPosition.z = -10;
 
