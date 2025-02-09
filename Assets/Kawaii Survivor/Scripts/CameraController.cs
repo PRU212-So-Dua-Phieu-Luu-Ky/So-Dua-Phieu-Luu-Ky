@@ -7,10 +7,11 @@ public class CameraController : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private Vector2 minMaxXY;
+
     
     void Start()
     {
-        
+        //minMaxXY.x = 
     }
 
     private void LateUpdate()
