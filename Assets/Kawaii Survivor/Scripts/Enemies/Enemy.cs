@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyMovement))]
@@ -23,6 +24,13 @@ public class Enemy : MonoBehaviour
     private float attackDelay;
     private float attackTimer;
 
+    [Header("Health")]
+    [SerializeField] private int maxHealth;
+
+    [SerializeField] private TextMeshPro healthText;
+
+    private int health;
+
     [Header(" Effects ")]
     [SerializeField] private ParticleSystem particleSystem;
 
@@ -31,6 +39,8 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        health = maxHealth;
+        healthText.text = health.ToString();
         movement = GetComponent<EnemyMovement>();
         player = FindFirstObjectByType<Player>();
 
@@ -48,6 +58,18 @@ public class Enemy : MonoBehaviour
         if (attackTimer >= attackDelay)
             TryAttack();
         else Wait();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        int realDamage = Mathf.Min(damage, health);
+        health -= damage;
+        healthText.text = health.ToString();
+
+        if (health <= 0)
+        {
+            PassAway();
+        }
     }
 
     private void SetRenderersVisibility(bool visibility)
@@ -68,6 +90,7 @@ public class Enemy : MonoBehaviour
     {
         attackTimer = 0f;
         player.TakeDamage(damage);
+        Debug.Log("Player taking damage");
     }
 
     private void Wait()
@@ -75,7 +98,7 @@ public class Enemy : MonoBehaviour
         attackTimer += Time.deltaTime;
     }
 
-    private void EnemyPassAway()
+    private void PassAway()
     {
         particleSystem.transform.SetParent(null);
         particleSystem.Play();
