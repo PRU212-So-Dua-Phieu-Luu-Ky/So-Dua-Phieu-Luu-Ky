@@ -28,7 +28,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //HandleMovement();
+        HandleMovement();
     }
 
     public Vector2 GetMovementVectorNormalized()
@@ -51,6 +51,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     private void OnDestroy()
     {
+        inputActions.Disable();
         inputActions.Dispose();
     }
 
@@ -58,6 +59,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         //moveVector = mobileJoystick.GetMoveVector() * moveSpeed * Time.fixedDeltaTime;
         //rigidbody2D.linearVelocity = moveVector;
-        HandleMovement();
+        //HandleMovement();
     }
 }

@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
             FollowPlayer();
     }
 
-    private void FollowPlayer()
+    public void FollowPlayer()
     {
         Vector2 direction = (player.transform.position - transform.position).normalized;
 

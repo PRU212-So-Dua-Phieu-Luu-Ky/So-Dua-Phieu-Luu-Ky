@@ -2,8 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyMovement))]
-public class Enemy : MonoBehaviour
+public class RangeEnemy : MonoBehaviour
 {
     [Header(" Components ")]
     private EnemyMovement movement;
@@ -17,7 +16,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private SpriteRenderer spawnIndicator;
     [SerializeField] private Collider2D collider;
     private bool hasSpawned = false;
-    
 
     [Header(" Attack ")]
     [SerializeField] private int damage;
@@ -38,9 +36,9 @@ public class Enemy : MonoBehaviour
     [Header(" Actions ")]
     public static Action<int, Vector2> onDamageTaken;
 
+
     [Header(" Debug ")]
     [SerializeField] private bool showGizmos;
-
     private void Start()
     {
         health = maxHealth;
@@ -54,60 +52,6 @@ public class Enemy : MonoBehaviour
         }
         StartSpawnSequence();
         attackDelay = 1f / attackFrequency;
-    }
-
-    private void Update()
-    {
-        if (attackTimer >= attackDelay)
-            TryAttack();
-        else Wait();
-    }
-
-    public void TakeDamage(int damage)
-    {
-        int realDamage = Mathf.Min(damage, health);
-        health -= damage;
-
-        onDamageTaken?.Invoke(damage, transform.position);
-
-        if (health <= 0)
-        {
-            PassAway();
-        }
-    }
-
-    private void SetRenderersVisibility(bool visibility)
-    {
-        enemyRenderer.enabled = visibility;
-        spawnIndicator.enabled = !visibility;
-    }
-
-    private void TryAttack()
-    {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-
-        if (distanceToPlayer <= playerDetectionRadius)
-            Attack();
-    }
-
-    private void Attack()
-    {
-        attackTimer = 0f;
-        player.TakeDamage(damage);
-        Debug.Log("Player taking damage");
-    }
-
-    private void Wait()
-    {
-        attackTimer += Time.deltaTime;
-    }
-
-    private void PassAway()
-    {
-        particleSystem.transform.SetParent(null);
-        particleSystem.Play();
-
-        Destroy(gameObject);
     }
 
     private void StartSpawnSequence()
@@ -126,6 +70,60 @@ public class Enemy : MonoBehaviour
         collider.enabled = true;
 
         hasSpawned = true;
+    }
+
+    private void TryAttack()
+    {
+        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+
+        if (distanceToPlayer <= playerDetectionRadius)
+            Attack();
+        else movement.FollowPlayer();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        int realDamage = Mathf.Min(damage, health);
+        health -= damage;
+
+        onDamageTaken?.Invoke(damage, transform.position);
+
+        if (health <= 0)
+        {
+            PassAway();
+        }
+    }
+
+    private void Attack()
+    {
+        attackTimer = 0f;
+        Debug.Log("Player taking damage");
+    }
+
+    private void Wait()
+    {
+        attackTimer += Time.deltaTime;
+    }
+
+    private void PassAway()
+    {
+        particleSystem.transform.SetParent(null);
+        particleSystem.Play();
+
+        Destroy(gameObject);
+    }
+
+    private void SetRenderersVisibility(bool visibility)
+    {
+        enemyRenderer.enabled = visibility;
+        spawnIndicator.enabled = !visibility;
+    }
+
+    private void Update()
+    {
+        if (attackTimer >= attackDelay)
+            TryAttack();
+        else Wait();
     }
 
     private void OnDrawGizmos()
