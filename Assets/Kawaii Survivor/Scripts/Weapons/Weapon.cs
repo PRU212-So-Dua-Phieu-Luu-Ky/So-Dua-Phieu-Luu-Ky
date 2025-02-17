@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -106,7 +107,10 @@ public class Weapon : MonoBehaviour
             return;
         }
 
-        closestEnemy = FindClosestEnemy(enemies);
+        if (enemies != null && enemies.ElementAt(0) != null)
+        {
+            closestEnemy = FindClosestEnemy(enemies);
+        }
 
         if (closestEnemy != null)
         {

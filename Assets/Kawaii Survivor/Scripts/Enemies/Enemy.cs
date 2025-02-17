@@ -58,9 +58,12 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if (!enemyRenderer.enabled) return;
         if (attackTimer >= attackDelay)
             TryAttack();
         else Wait();
+
+        movement.FollowPlayer();
     }
 
     public void TakeDamage(int damage)

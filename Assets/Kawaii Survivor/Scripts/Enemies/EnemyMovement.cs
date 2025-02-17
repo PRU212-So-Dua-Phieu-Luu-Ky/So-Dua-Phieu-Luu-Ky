@@ -20,8 +20,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        if (player != null)
-            FollowPlayer();
+        //if (player != null)
+        //    FollowPlayer();
     }
 
     public void FollowPlayer()

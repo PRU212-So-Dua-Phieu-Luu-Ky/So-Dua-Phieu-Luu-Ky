@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &273223204378500514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4837310782910106600}
+  m_Layer: 0
+  m_Name: Shooting Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4837310782910106600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273223204378500514}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.413, y: 0.331, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8937987366609859733}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3404574091094035729
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +42,7 @@ GameObject:
   - component: {fileID: 1058797530944787063}
   - component: {fileID: 8483959217337026646}
   - component: {fileID: 5485471529127262547}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Pass away particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4901,7 +4932,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8103398004275764849}
   - component: {fileID: 1278714661328620777}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Spawn Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4988,7 +5019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7647082344090565963}
   - component: {fileID: 2048487652836159838}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: EnemyRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5077,7 +5108,8 @@ GameObject:
   - component: {fileID: 4167694078186697739}
   - component: {fileID: 4865346220207061899}
   - component: {fileID: 4235053650063005206}
-  m_Layer: 6
+  - component: {fileID: 7584336543690868706}
+  m_Layer: 0
   m_Name: Range Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5100,6 +5132,7 @@ Transform:
   - {fileID: 7647082344090565963}
   - {fileID: 1058797530944787063}
   - {fileID: 8103398004275764849}
+  - {fileID: 4837310782910106600}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4167694078186697739
@@ -5145,7 +5178,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -5166,9 +5199,23 @@ MonoBehaviour:
   enemyRenderer: {fileID: 2048487652836159838}
   spawnIndicator: {fileID: 1278714661328620777}
   collider: {fileID: 4865346220207061899}
-  damage: 5
-  attackFrequency: 1
   playerDetectionRadius: 6
-  maxHealth: 50
+  maxHealth: 30
   particleSystem: {fileID: 8483959217337026646}
   showGizmos: 1
+--- !u!114 &7584336543690868706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241085164980407499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e415d7e668c483d42b4a3449fc51ba71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 4837310782910106600}
+  bulletPrefab: {fileID: 8837760136213849241, guid: fcf981c48c62d194893aea9d7a4ac8f2, type: 3}
+  damage: 5
+  attackFrequency: 1
