@@ -151,6 +151,7 @@ public class Weapon : MonoBehaviour
 
         foreach (var enemyCollider in enemies)
         {
+            Debug.Log("Enemy : " + enemyCollider.name);
             var enemy = enemyCollider.GetComponent<Enemy>();
             float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
 

@@ -55213,7 +55213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9118583195209620780, guid: c017c6994bdf08a4b8c623870fe813bb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -56095,21 +56095,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3017346310966950395, guid: c017c6994bdf08a4b8c623870fe813bb, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8978367930017587961, guid: c017c6994bdf08a4b8c623870fe813bb, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 9118583195209620780, guid: c017c6994bdf08a4b8c623870fe813bb, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 9118583195209620780, guid: c017c6994bdf08a4b8c623870fe813bb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

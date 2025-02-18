@@ -1,47 +1,39 @@
 using System;
-using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyMovement))]
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     [Header(" Components ")]
-    private EnemyMovement movement;
+    protected EnemyMovement movement;
 
     [Header(" Elements ")]
-    private Player player;
+    protected Player player;
 
     [Header(" Spawn sequence related ")]
-    [SerializeField] private SpriteRenderer enemyRenderer;
+    [SerializeField] protected SpriteRenderer enemyRenderer;
 
-    [SerializeField] private SpriteRenderer spawnIndicator;
-    [SerializeField] private Collider2D collider;
-    private bool hasSpawned = false;
-    
+    [SerializeField] protected SpriteRenderer spawnIndicator;
+    [SerializeField] protected Collider2D collider;
+    protected bool hasSpawned = false;
 
     [Header(" Attack ")]
-    [SerializeField] private int damage;
-
-    [SerializeField] private int attackFrequency;
-    [SerializeField] private float playerDetectionRadius = 0.5f;
-    private float attackDelay;
-    private float attackTimer;
+    [SerializeField] protected float playerDetectionRadius = 0.5f;
 
     [Header("Health")]
-    [SerializeField] private int maxHealth;
+    [SerializeField] protected int maxHealth;
 
-    private int health;
+    protected int health;
 
     [Header(" Effects ")]
-    [SerializeField] private ParticleSystem particleSystem;
+    [SerializeField] protected ParticleSystem particleSystem;
 
     [Header(" Actions ")]
     public static Action<int, Vector2> onDamageTaken;
 
     [Header(" Debug ")]
-    [SerializeField] private bool showGizmos;
+    [SerializeField] protected bool showGizmos;
 
-    private void Start()
+    protected virtual void Start()
     {
         health = maxHealth;
         movement = GetComponent<EnemyMovement>();
@@ -53,17 +45,35 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
         StartSpawnSequence();
-        attackDelay = 1f / attackFrequency;
     }
 
-    private void Update()
+    protected bool CanAttack()
     {
-        if (!enemyRenderer.enabled) return;
-        if (attackTimer >= attackDelay)
-            TryAttack();
-        else Wait();
+        return enemyRenderer.enabled;
+    }
 
-        movement.FollowPlayer();
+    private void StartSpawnSequence()
+    {
+        SetRenderersVisibility(false);
+        collider.enabled = false;
+        Vector3 targetScale = spawnIndicator.transform.localScale * 1.2f;
+        LeanTween.scale(spawnIndicator.gameObject, targetScale, .3f).setLoopPingPong(4).setOnComplete(OnSpawnSequenceCompleted);
+    }
+
+    private void SetRenderersVisibility(bool visibility)
+    {
+        enemyRenderer.enabled = visibility;
+        spawnIndicator.enabled = !visibility;
+    }
+
+    private void OnSpawnSequenceCompleted()
+    {
+        movement.StorePlayer(player);
+        SetRenderersVisibility(true);
+
+        collider.enabled = true;
+
+        hasSpawned = true;
     }
 
     public void TakeDamage(int damage)
@@ -79,32 +89,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void SetRenderersVisibility(bool visibility)
-    {
-        enemyRenderer.enabled = visibility;
-        spawnIndicator.enabled = !visibility;
-    }
-
-    private void TryAttack()
-    {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-
-        if (distanceToPlayer <= playerDetectionRadius)
-            Attack();
-    }
-
-    private void Attack()
-    {
-        attackTimer = 0f;
-        player.TakeDamage(damage);
-        Debug.Log("Player taking damage");
-    }
-
-    private void Wait()
-    {
-        attackTimer += Time.deltaTime;
-    }
-
     private void PassAway()
     {
         particleSystem.transform.SetParent(null);
@@ -113,28 +97,4 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void StartSpawnSequence()
-    {
-        SetRenderersVisibility(false);
-        collider.enabled = false;
-        Vector3 targetScale = spawnIndicator.transform.localScale * 1.2f;
-        LeanTween.scale(spawnIndicator.gameObject, targetScale, .3f).setLoopPingPong(4).setOnComplete(OnSpawnSequenceCompleted);
-    }
-
-    private void OnSpawnSequenceCompleted()
-    {
-        movement.StorePlayer(player);
-        SetRenderersVisibility(true);
-
-        collider.enabled = true;
-
-        hasSpawned = true;
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (!showGizmos) return;
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, playerDetectionRadius);
-    }
 }

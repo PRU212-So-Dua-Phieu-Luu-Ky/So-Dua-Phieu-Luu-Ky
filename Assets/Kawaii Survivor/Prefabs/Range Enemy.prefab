@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4837310782910106600}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shooting Point
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 1058797530944787063}
   - component: {fileID: 8483959217337026646}
   - component: {fileID: 5485471529127262547}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pass away particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4932,7 +4932,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8103398004275764849}
   - component: {fileID: 1278714661328620777}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spawn Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5019,7 +5019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7647082344090565963}
   - component: {fileID: 2048487652836159838}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5109,7 +5109,7 @@ GameObject:
   - component: {fileID: 4865346220207061899}
   - component: {fileID: 4235053650063005206}
   - component: {fileID: 7584336543690868706}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Range Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5182,8 +5182,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: 0.014801502, y: 0.32809925}
+  m_Radius: 0.31004763
 --- !u!114 &4235053650063005206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5199,7 +5199,7 @@ MonoBehaviour:
   enemyRenderer: {fileID: 2048487652836159838}
   spawnIndicator: {fileID: 1278714661328620777}
   collider: {fileID: 4865346220207061899}
-  playerDetectionRadius: 6
+  playerDetectionRadius: 8
   maxHealth: 30
   particleSystem: {fileID: 8483959217337026646}
   showGizmos: 1
