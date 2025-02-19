@@ -27,10 +27,6 @@ public class RangeEnemyAttack : MonoBehaviour
         bulletPool = new ObjectPool<EnemyBullet>(Create, ActionOnGet, ActionOnRelease, ActionOnDestroy, defaultCapacity:4);
     }
 
-    private void Update()
-    {
-    }
-
     private void ActionOnDestroy(EnemyBullet bullet)
     {
         Destroy(bullet.gameObject);

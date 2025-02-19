@@ -28,7 +28,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected ParticleSystem particleSystem;
 
     [Header(" Actions ")]
-    public static Action<int, Vector2> onDamageTaken;
+    public static Action<int, Vector2, bool> onDamageTaken;
 
     [Header(" Debug ")]
     [SerializeField] protected bool showGizmos;
@@ -76,12 +76,12 @@ public abstract class Enemy : MonoBehaviour
         hasSpawned = true;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, bool isCriticalHit)
     {
         int realDamage = Mathf.Min(damage, health);
         health -= damage;
 
-        onDamageTaken?.Invoke(damage, transform.position);
+        onDamageTaken?.Invoke(damage, transform.position, isCriticalHit);
 
         if (health <= 0)
         {
@@ -95,6 +95,11 @@ public abstract class Enemy : MonoBehaviour
         particleSystem.Play();
 
         Destroy(gameObject);
+    }
+
+    public Vector2 GetCenter()
+    {
+        return (Vector2)transform.position + collider.offset;
     }
 
 }

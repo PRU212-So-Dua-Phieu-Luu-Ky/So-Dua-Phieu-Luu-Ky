@@ -18,9 +18,10 @@ public class DamageText : MonoBehaviour
     }
 
     [NaughtyAttributes.Button]
-    public void Animate(int damage)
+    public void Animate(int damage, bool isCriticalHit)
     {
-        damageText.text = damage.ToString(); 
+        damageText.text = damage.ToString();
+        damageText.color = isCriticalHit ? Color.red : Color.white;
         animator.Play("Damage Text Animation");
     }
 }
