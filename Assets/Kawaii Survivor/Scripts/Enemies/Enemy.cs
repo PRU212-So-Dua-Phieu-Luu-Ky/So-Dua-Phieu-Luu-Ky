@@ -29,6 +29,7 @@ public abstract class Enemy : MonoBehaviour
 
     [Header(" Actions ")]
     public static Action<int, Vector2, bool> onDamageTaken;
+    public static Action<Vector2> onPassedAway;
 
     [Header(" Debug ")]
     [SerializeField] protected bool showGizmos;
@@ -91,6 +92,7 @@ public abstract class Enemy : MonoBehaviour
 
     private void PassAway()
     {
+        onPassedAway?.Invoke(transform.position);
         particleSystem.transform.SetParent(null);
         particleSystem.Play();
 
