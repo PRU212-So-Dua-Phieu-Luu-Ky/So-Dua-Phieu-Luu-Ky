@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class NewMonoBehaviourScript : MonoBehaviour
+public class NewMonoBehaviourScript : MonoBehaviour, IGameStateListener
 {
     [Header("Elements")]
     [SerializeField] private MobileJoystick mobileJoystick;
@@ -16,6 +16,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     private Vector3 moveVector;
     private Vector2 moveDirection;
     private float moveDistance;
+    private bool canMove;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
@@ -42,11 +43,15 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     private void HandleMovement()
     {
-        var inputVector = GetMovementVectorNormalized();
-        moveDirection = new Vector2(inputVector.x, inputVector.y);
-        moveDistance = moveSpeed * Time.deltaTime;
+        if (canMove)
+        {
+            var inputVector = GetMovementVectorNormalized();
+            moveDirection = new Vector2(inputVector.x, inputVector.y);
+            moveDistance = moveSpeed * Time.deltaTime;
 
-        rigidbody2D.linearVelocity = moveDirection * moveDistance;
+            rigidbody2D.linearVelocity = moveDirection * moveDistance;
+        }
+        else rigidbody2D.linearVelocity = Vector2.zero;
     }
 
     private void OnDestroy()
@@ -60,5 +65,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
         //moveVector = mobileJoystick.GetMoveVector() * moveSpeed * Time.fixedDeltaTime;
         //rigidbody2D.linearVelocity = moveVector;
         //HandleMovement();
+    }
+
+    public void GameStateChangedCallBack(GameState gameState)
+    {
+        if (gameState != GameState.GAME) canMove = false;
+        else canMove = true;
     }
 }

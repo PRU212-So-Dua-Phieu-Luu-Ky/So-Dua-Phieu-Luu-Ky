@@ -2,16 +2,27 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerHealth))]
+[RequireComponent(typeof(PlayerHealth), typeof(PlayerLevel))]
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; private set; }
+
     [Header(" Components ")]
     private PlayerHealth playerHealth;
+    private PlayerLevel playerLevel;
     [SerializeField] private CircleCollider2D collider;
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        } else
+        {
+            Destroy(gameObject);
+        }
         playerHealth = GetComponent<PlayerHealth>();
+        playerLevel = GetComponent<PlayerLevel>();
     }
 
     private void Start()
@@ -31,5 +42,10 @@ public class Player : MonoBehaviour
     public Vector2 GetCenter()
     {
         return (Vector2)transform.position + collider.offset;
+    }
+
+    public bool HasLeveledUp()
+    {
+        return playerLevel.HasLeveledUp();
     }
 }
