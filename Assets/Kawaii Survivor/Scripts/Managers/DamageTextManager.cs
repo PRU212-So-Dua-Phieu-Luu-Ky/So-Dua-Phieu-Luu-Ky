@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -11,17 +12,19 @@ public class DamageTextManager : MonoBehaviour
 
     private void Awake()
     {
-        Enemy.onDamageTaken += EnemyHitCallback;   
+        Enemy.onDamageTaken += EnemyHitCallback;
+        PlayerHealth.onAttackedDodged += AttackDodgedCallback;
     }
 
     private void OnDestroy()
     {
-        Enemy.onDamageTaken -= EnemyHitCallback;   
+        Enemy.onDamageTaken -= EnemyHitCallback;
+        PlayerHealth.onAttackedDodged -= AttackDodgedCallback;
     }
 
-    void Start()
+    private void Start()
     {
-        damageTextPool = new ObjectPool<DamageText>(Create, ActionOnGet, ActionOnRelease,ActionOnDestroy); 
+        damageTextPool = new ObjectPool<DamageText>(Create, ActionOnGet, ActionOnRelease, ActionOnDestroy);
     }
 
     private DamageText Create()
@@ -39,8 +42,8 @@ public class DamageTextManager : MonoBehaviour
         damageText.gameObject.SetActive(false);
     }
 
-    private void ActionOnDestroy(DamageText damageText) 
-    { 
+    private void ActionOnDestroy(DamageText damageText)
+    {
         Destroy(damageText.gameObject);
     }
 
@@ -48,14 +51,30 @@ public class DamageTextManager : MonoBehaviour
     {
         var damageTextInstance = damageTextPool.Get();
 
-        Vector3 spawnPosition =  enemyPosition + Vector2.up * 1.5f;
+        Vector3 spawnPosition = enemyPosition + Vector2.up * 1.5f;
         damageTextInstance.transform.position = spawnPosition;
 
-        damageTextInstance.Animate(damage, isCriticalHit);
+        damageTextInstance.Animate(damage.ToString(), isCriticalHit);
 
         if (damageTextInstance != null)
         {
             LeanTween.delayedCall(1, () => damageTextPool.Release(damageTextInstance));
         };
+    }
+
+    private void AttackDodgedCallback(Vector2 playerPositioon)
+    {
+        var damageTextInstance = damageTextPool.Get();
+
+        Vector3 spawnPosition = playerPositioon + Vector2.up * 1.5f;
+        damageTextInstance.transform.position = spawnPosition;
+
+        damageTextInstance.Animate("Dodged", false);
+
+        if (damageTextInstance != null)
+        {
+            LeanTween.delayedCall(1, () => damageTextPool.Release(damageTextInstance));
+        };
+
     }
 }

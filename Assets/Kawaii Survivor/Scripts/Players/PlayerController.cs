@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class NewMonoBehaviourScript : MonoBehaviour, IGameStateListener
+public class NewMonoBehaviourScript : MonoBehaviour, IGameStateListener, IPlayerStatDependency
 {
     [Header("Elements")]
     [SerializeField] private MobileJoystick mobileJoystick;
@@ -9,7 +9,8 @@ public class NewMonoBehaviourScript : MonoBehaviour, IGameStateListener
     private Rigidbody2D rigidbody2D;
 
     [Header("Settings")]
-    [SerializeField] private float moveSpeed = 1f;
+    private float moveSpeed = 1f;
+    [SerializeField] private float baseMoveSpeed = 1f;
 
     private PlayerInputSystem inputActions;
 
@@ -26,12 +27,6 @@ public class NewMonoBehaviourScript : MonoBehaviour, IGameStateListener
         rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        HandleMovement();
-    }
-
     public Vector2 GetMovementVectorNormalized()
     {
         Vector2 inputVector = inputActions.Player.Move.ReadValue<Vector2>();
@@ -41,7 +36,25 @@ public class NewMonoBehaviourScript : MonoBehaviour, IGameStateListener
         return inputVector;
     }
 
-    private void HandleMovement()
+ 
+    private void OnDestroy()
+    {
+        inputActions.Disable();
+        inputActions.Dispose();
+    }
+
+    private void FixedUpdate()
+    {
+        HandleMovement();
+    }
+
+    public void GameStateChangedCallBack(GameState gameState)
+    {
+        if (gameState != GameState.GAME) canMove = false;
+        else canMove = true;
+    }
+
+   private void HandleMovement()
     {
         if (canMove)
         {
@@ -54,22 +67,9 @@ public class NewMonoBehaviourScript : MonoBehaviour, IGameStateListener
         else rigidbody2D.linearVelocity = Vector2.zero;
     }
 
-    private void OnDestroy()
+    public void UpdateStats(PlayerStatsManager playerStatsManager)
     {
-        inputActions.Disable();
-        inputActions.Dispose();
-    }
-
-    private void FixedUpdate()
-    {
-        //moveVector = mobileJoystick.GetMoveVector() * moveSpeed * Time.fixedDeltaTime;
-        //rigidbody2D.linearVelocity = moveVector;
-        //HandleMovement();
-    }
-
-    public void GameStateChangedCallBack(GameState gameState)
-    {
-        if (gameState != GameState.GAME) canMove = false;
-        else canMove = true;
+        float moveSpeedPercent = playerStatsManager.GetStatValue(Stat.MoveSpeed) / 100;
+        moveSpeed = baseMoveSpeed * (1 + moveSpeedPercent);
     }
 }

@@ -1,27 +1,26 @@
-using UnityEngine;
 using TMPro;
-using UnityEngine.InputSystem;
+using UnityEngine;
 
 public class DamageText : MonoBehaviour
 {
     [Header(" Elements ")]
     [SerializeField] private Animator animator;
+
     [SerializeField] private TextMeshPro damageText;
-    void Start()
+
+    private void Start()
     {
-        
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 
     [NaughtyAttributes.Button]
-    public void Animate(int damage, bool isCriticalHit)
+    public void Animate(string damage, bool isCriticalHit)
     {
-        damageText.text = damage.ToString();
+        damageText.text = damage;
         damageText.color = isCriticalHit ? Color.red : Color.white;
         animator.Play("Damage Text Animation");
     }
