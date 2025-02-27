@@ -1,27 +1,18 @@
-using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
-
-[CreateAssetMenu(fileName = "Character Data", menuName = "Scriptable Objects/New Character Data", order = 0)]
-public class CharacterDataSO : ScriptableObject
+[CreateAssetMenu(fileName = "Weapon Data", menuName = "Scriptable Objects/New Weapon Data", order = 0)]
+public class WeaponDataSO : ScriptableObject 
 {
     [field: SerializeField] public string Name { get; private set; }
     [field: SerializeField] public Sprite Sprite { get; private set; }
     [field: SerializeField] public int PurchasePrice { get; private set; }
 
-    [HorizontalLine]
+    [field: SerializeField] public Weapon prefab { get; private set; }
     [SerializeField] private float attack;
     [SerializeField] private float attackSpeed;
     [SerializeField] private float criticalChance;
     [SerializeField] private float criticalPercent;
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float maxHealth;
     [SerializeField] private float range;
-    [SerializeField] private float healthRecoverySpeed;
-    [SerializeField] private float armor;
-    [SerializeField] private float luck;
-    [SerializeField] private float dodge;
-    [SerializeField] private float lifesteal;
 
     public Dictionary<Stat, float> BaseStats
     {
@@ -33,15 +24,17 @@ public class CharacterDataSO : ScriptableObject
                 {Stat.AttackSpeed, attackSpeed },
                 {Stat.CriticalChance, criticalChance },
                 {Stat.CriticalPercent, criticalPercent },
-                {Stat.MoveSpeed, moveSpeed },
-                {Stat.MaxHealth, maxHealth },
                 {Stat.Range, range },
-                {Stat.HealthRecoverySpeed, healthRecoverySpeed },
-                {Stat.Armor, armor },
-                {Stat.Luck, luck },
-                {Stat.Dodge, dodge },
-                {Stat.Lifesteal, lifesteal },
             };
         }
+    }
+
+    public float GetStatValue(Stat stat)
+    {
+        foreach (KeyValuePair<Stat, float> pair in BaseStats)
+        {
+            if (pair.Key == stat) return pair.Value;
+        }
+        return 0;
     }
 }

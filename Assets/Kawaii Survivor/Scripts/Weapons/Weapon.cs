@@ -2,8 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour, IPlayerStatDependency
 {
+    [field: SerializeField] public WeaponDataSO WeaponData { get; private set; }
     [Header("Animation")]
     [SerializeField] protected float aimLerp;
 
@@ -15,9 +16,19 @@ public abstract class Weapon : MonoBehaviour
     [Header("Attack")]
     [SerializeField] protected int damage;
 
+    [Header("Critical")]
+    protected int criticalChance;
+    protected float criticalPercent;
+
     [SerializeField] protected float attackDelay;
     protected float attackTimer;
 
+    [Header("Level")]
+    [field: SerializeField] public int Level {  get; private set; }
+
+    private void Start()
+    {
+    }
 
     protected void SmoothAim(Vector2 targetUpVector)
     {
@@ -51,13 +62,32 @@ public abstract class Weapon : MonoBehaviour
 
     protected int GetDamage(out bool isCriticalHit)
     {
-        if (Random.Range(0, 101) <= 50)
+        if (Random.Range(0, 101) <= criticalChance)
         {
             isCriticalHit = true;
-            return damage * 2;
+            Debug.Log("crit percent " + criticalPercent);
+            return Mathf.RoundToInt(damage * criticalPercent);
         }
 
         isCriticalHit = false;
         return damage;
+    }
+
+    public abstract void UpdateStats(PlayerStatsManager playerStatsManager);
+
+    protected void ConfigureStats()
+    {
+        float multiplier = 1 + (float)Level / 3;
+        damage = Mathf.RoundToInt( WeaponData.GetStatValue(Stat.Attack)* multiplier);
+        attackDelay = 1f / (WeaponData.GetStatValue(Stat.AttackSpeed ) * multiplier);
+
+        criticalChance = Mathf.RoundToInt(WeaponData.GetStatValue(Stat.CriticalChance) * multiplier);
+        criticalPercent = WeaponData.GetStatValue(Stat.CriticalPercent) * multiplier;
+
+        if (WeaponData.prefab.GetType() == typeof(RangeWeapon))
+        {
+            weaponRange = WeaponData.GetStatValue(Stat.Range) * multiplier;
+        }
+
     }
 }
