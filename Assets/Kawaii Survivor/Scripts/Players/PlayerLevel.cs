@@ -9,7 +9,7 @@ public class PlayerLevel : MonoBehaviour
     private int requiredXp;
     private int currentXp;
     private int level;
-    private int levelsEarnedThisWave;
+    private int levelsEarnedThisWave; // track how many level earned at the current wave
 
     [Header(" Visuals ")]
     [SerializeField] private Slider xpBar;
@@ -20,7 +20,7 @@ public class PlayerLevel : MonoBehaviour
 
     private void Awake()
     {
-        Candy.onCollected += CandyCollectedCallback; 
+        Candy.onCollected += CandyCollectedCallback;
     }
 
     private void CandyCollectedCallback(Candy candy)
@@ -43,8 +43,8 @@ public class PlayerLevel : MonoBehaviour
 
     void Start()
     {
-        UpdateRequiredXp(); 
-        UpdateVisuals(); 
+        UpdateRequiredXp();
+        UpdateVisuals();
     }
 
     private void UpdateVisuals()
@@ -61,7 +61,7 @@ public class PlayerLevel : MonoBehaviour
     public bool HasLeveledUp()
     {
         if (DEBUG)
-        return true;
+            return true;
 
         if (levelsEarnedThisWave > 0)
         {

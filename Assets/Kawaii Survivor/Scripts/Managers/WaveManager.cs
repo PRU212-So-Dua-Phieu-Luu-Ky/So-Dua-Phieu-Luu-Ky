@@ -148,6 +148,13 @@ public class WaveManager : MonoBehaviour, IGameStateListener
         return targetPosition;
     }
 
+    /// <summary>
+    /// Wave Manager react to the game state
+    /// - Game: StartNextWave()
+    /// - Wave Transition: do nothing
+    /// - Game over: turn off timer and delete all enemies game objects
+    /// </summary>
+    /// <param name="gameState"></param>
     public void GameStateChangedCallBack(GameState gameState)
     {
         switch (gameState)
@@ -161,7 +168,6 @@ public class WaveManager : MonoBehaviour, IGameStateListener
                 isTimerOn = false;
                 DefeatAllEnemies();
                 break;
-
         }
     }
 

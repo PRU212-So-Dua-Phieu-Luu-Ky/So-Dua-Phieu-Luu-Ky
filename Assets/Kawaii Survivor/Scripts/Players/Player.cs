@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerHealth), typeof(PlayerLevel))]
 public class Player : MonoBehaviour
 {
+    // ==============================
+    // === Props & Fields
+    // ==============================
+
     public static Player Instance { get; private set; }
 
     [Header(" Components ")]
@@ -12,12 +16,17 @@ public class Player : MonoBehaviour
     private PlayerLevel playerLevel;
     [SerializeField] private CircleCollider2D collider;
 
+    // ==============================
+    // === Constructors
+    // ==============================
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-        } else
+        }
+        else
         {
             Destroy(gameObject);
         }
@@ -33,6 +42,10 @@ public class Player : MonoBehaviour
     private void Update()
     {
     }
+
+    // ==============================
+    // === Methods
+    // ==============================
 
     public void TakeDamage(int damage)
     {

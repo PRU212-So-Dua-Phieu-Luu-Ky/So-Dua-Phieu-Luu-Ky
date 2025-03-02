@@ -4,17 +4,30 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Change the game state
+/// </summary>
 public class GameManagerController : MonoBehaviour
 {
+    // ==============================
+    // === Fields & Props
+    // ==============================
+
     public static GameManagerController Instance { get; private set; }
     [SerializeField] private int targetFrameRate = 60;
 
+    // ==============================
+    // === Lifecycle
+    // ==============================
+
     private void Awake()
     {
+        // Make sure only 1 instance of game manager for the entire game lifecycle
         if (Instance == null)
         {
             Instance = this;
-        } else
+        }
+        else
         {
             Destroy(gameObject);
         }
@@ -35,15 +48,21 @@ public class GameManagerController : MonoBehaviour
         if (Player.Instance.HasLeveledUp())
         {
             SetGameState(GameState.WAVE_TRANSITION);
-        } else
+        }
+        else
         {
             SetGameState(GameState.SHOP);
         }
     }
 
+    /// <summary>
+    /// Any game objec that implement this interface will react to game state changes
+    /// </summary>
+    /// <param name="gameState"></param>
     public void SetGameState(GameState gameState)
     {
-        IEnumerable<IGameStateListener> gameStateListeners = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IGameStateListener>(); 
+        // Finding all class implementing the interface IGameStateListener
+        IEnumerable<IGameStateListener> gameStateListeners = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IGameStateListener>();
 
         foreach (IGameStateListener gameStateListener in gameStateListeners)
         {

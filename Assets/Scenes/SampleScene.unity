@@ -60118,8 +60118,8 @@ MonoBehaviour:
   candyPrefab: {fileID: 7084823988073030875, guid: faa59fc359ee20e4eb51f299a2c53f52, type: 3}
   cashPrefab: {fileID: 1760433704558617236, guid: 9eeb917868bf0bb4b9830fabbdbfbac1, type: 3}
   chestPrefab: {fileID: 583013178828460831, guid: 5817c132f9afcdf4a9babc7d15fae64f, type: 3}
-  cashDropChance: 20
-  chestDropChance: 54
+  cashDropChance: 9
+  chestDropChance: 23
 --- !u!1 &2137184731
 GameObject:
   m_ObjectHideFlags: 0
