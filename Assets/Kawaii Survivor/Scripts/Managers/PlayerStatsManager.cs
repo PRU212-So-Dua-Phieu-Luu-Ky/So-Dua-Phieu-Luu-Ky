@@ -43,7 +43,6 @@ public class PlayerStatsManager : MonoBehaviour
         }
 
         UpdatePlayerStats();
-
     }
 
     public float GetStatValue(Stat stat)

@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour, IGameStateListener
 {
+    // ==============================
+    // === Fields & Props
+    // ==============================
+
     [Header(" Panels ")]
     [SerializeField] private GameObject menuPanel;
 
@@ -11,7 +15,7 @@ public class UIManager : MonoBehaviour, IGameStateListener
     [SerializeField] private GameObject shopPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject stageCompletePanel;
-    [SerializeField] private GameObject weaponSelectionPanel; 
+    [SerializeField] private GameObject weaponSelectionPanel;
     private List<GameObject> panels = new List<GameObject>();
 
     private void Awake()
@@ -22,11 +26,15 @@ public class UIManager : MonoBehaviour, IGameStateListener
             gamePanel,
             waveTransitionPanel,
             shopPanel,
-            gameOverPanel,
             stageCompletePanel,
+            gameOverPanel,
             weaponSelectionPanel
         });
     }
+
+    // ==============================
+    // === Constructors
+    // ==============================
 
     private void Start()
     {
@@ -36,6 +44,10 @@ public class UIManager : MonoBehaviour, IGameStateListener
     private void Update()
     {
     }
+
+    // ==============================
+    // === Methods
+    // ==============================
 
     public void GameStateChangedCallBack(GameState gameState)
     {
@@ -71,11 +83,15 @@ public class UIManager : MonoBehaviour, IGameStateListener
         }
     }
 
+    /// <summary>
+    /// Enable/Disable all game objects of the panels
+    /// </summary>
+    /// <param name="panel"></param>
     private void ShowPanel(GameObject panel)
     {
-        foreach (GameObject go in panels)
+        foreach (GameObject gameObject in panels)
         {
-            go.SetActive(go == panel);
+            gameObject.SetActive(gameObject == panel);
         }
     }
 }

@@ -58,6 +58,12 @@ public class PlayerLevel : MonoBehaviour
         requiredXp = (level + 1) * 5;
     }
 
+    /// <summary>
+    /// Tracking how many time to choose the upgradable item
+    /// true: keep continuing choosing
+    /// false: not choosing
+    /// </summary>
+    /// <returns></returns>
     public bool HasLeveledUp()
     {
         if (DEBUG)

@@ -38,11 +38,17 @@ public class GameManagerController : MonoBehaviour
         SetGameState(GameState.MENU);
     }
 
-    // Update is called once per frame
     private void Update()
     {
     }
 
+    // ==============================
+    // === Methods
+    // ==============================
+
+    /// <summary>
+    /// Clicking this function to show SHOP or MENU of Upgradable Stats
+    /// </summary>
     public void WaveCompletedCallback()
     {
         if (Player.Instance.HasLeveledUp())
@@ -70,6 +76,9 @@ public class GameManagerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Load the scene from scratch when click the button
+    /// </summary>
     public void ManageGameOver()
     {
         SceneManager.LoadScene(0);

@@ -61,6 +61,9 @@ public class WaveManager : MonoBehaviour, IGameStateListener
     // === Methods
     // ==============================
 
+    /// <summary>
+    /// Function calling the next wave
+    /// </summary>
     private void StartWaveTransition()
     {
         isTimerOn = false;

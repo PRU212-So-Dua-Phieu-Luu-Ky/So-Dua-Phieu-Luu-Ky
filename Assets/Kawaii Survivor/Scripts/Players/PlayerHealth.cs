@@ -107,6 +107,9 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatDependency
         healthText.text = (int)health + " / " + maxHealth;
     }
 
+    /// <summary>
+    /// Showing UI game over when player health = 0
+    /// </summary>
     private void PassAway()
     {
         GameManagerController.Instance.SetGameState(GameState.GAME_OVER);
