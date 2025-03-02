@@ -36,7 +36,7 @@ public class NewMonoBehaviourScript : MonoBehaviour, IGameStateListener, IPlayer
         return inputVector;
     }
 
- 
+
     private void OnDestroy()
     {
         inputActions.Disable();
@@ -54,7 +54,7 @@ public class NewMonoBehaviourScript : MonoBehaviour, IGameStateListener, IPlayer
         else canMove = true;
     }
 
-   private void HandleMovement()
+    private void HandleMovement()
     {
         if (canMove)
         {

@@ -1435,22 +1435,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1861070587}
-  waveDuration: 10
+  waveDuration: 30
   Waves:
-  - name: Wave 00
-    segments:
-    - tStartEnd: {x: 0, y: 34}
-      spawnFrequency: 5
-      prefab: {fileID: 9118583195209620780, guid: c017c6994bdf08a4b8c623870fe813bb, type: 3}
-    - tStartEnd: {x: 33, y: 100}
-      spawnFrequency: 5
-      prefab: {fileID: 6241085164980407499, guid: c2ca6110d9ff5e0429c40e9d4b64cfe4, type: 3}
   - name: Wave 01
     segments:
-    - tStartEnd: {x: 0, y: 67}
+    - tStartEnd: {x: 0, y: 40.958}
+      spawnFrequency: 4
+      prefab: {fileID: 6241085164980407499, guid: c2ca6110d9ff5e0429c40e9d4b64cfe4, type: 3}
+    - tStartEnd: {x: 59.042004, y: 100}
+      spawnFrequency: 4
+      prefab: {fileID: 9118583195209620780, guid: c017c6994bdf08a4b8c623870fe813bb, type: 3}
+  - name: Wave 02
+    segments:
+    - tStartEnd: {x: 0, y: 40.958}
       spawnFrequency: 5
       prefab: {fileID: 6241085164980407499, guid: c2ca6110d9ff5e0429c40e9d4b64cfe4, type: 3}
-    - tStartEnd: {x: 66, y: 100}
+    - tStartEnd: {x: 59.042004, y: 100}
       spawnFrequency: 5
       prefab: {fileID: 9118583195209620780, guid: c017c6994bdf08a4b8c623870fe813bb, type: 3}
 --- !u!114 &441158088
@@ -2831,37 +2831,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749719434}
   m_CullTransparentMesh: 1
---- !u!1 &750057605
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 750057606}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &750057606
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 750057605}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1045.2207, y: 499.1038, z: -5.2389493}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &766678820
 GameObject:
   m_ObjectHideFlags: 0
@@ -59236,8 +59205,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 373782302}
     - target: {fileID: 3154663883955577385, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
+      propertyPath: aimLerp
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154663883955577385, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
       propertyPath: baseDamage
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154663883955577385, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
+      propertyPath: attackDelay
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154663883955577385, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
+      propertyPath: weaponRange
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3154663883955577385, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
       propertyPath: <Level>k__BackingField
@@ -59302,6 +59283,10 @@ PrefabInstance:
     - target: {fileID: 8195094128725200327, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569320540084099439, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9122036710640461358, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
       propertyPath: <WeaponData>k__BackingField
@@ -60634,4 +60619,3 @@ SceneRoots:
   - {fileID: 338418674}
   - {fileID: 1943943333}
   - {fileID: 155532859}
-  - {fileID: 750057606}

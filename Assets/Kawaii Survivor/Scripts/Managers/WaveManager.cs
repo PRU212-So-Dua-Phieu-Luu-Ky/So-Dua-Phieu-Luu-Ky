@@ -6,6 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(WaveManagerUI))]
 public class WaveManager : MonoBehaviour, IGameStateListener
 {
+    // ==============================
+    // === Fields & Props
+    // ==============================
+
     [Header(" Elements ")]
     [SerializeField] private Player player;
     private WaveManagerUI waveManagerUI;
@@ -19,9 +23,11 @@ public class WaveManager : MonoBehaviour, IGameStateListener
 
     [Header(" Waves ")]
     [SerializeField] private Wave[] Waves;
-
     private List<float> localCounters = new List<float>();
 
+    // ==============================
+    // === Lifecycles
+    // ==============================
     private void Awake()
     {
         waveManagerUI = GetComponent<WaveManagerUI>();
@@ -31,7 +37,6 @@ public class WaveManager : MonoBehaviour, IGameStateListener
     {
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if (!isTimerOn)
@@ -40,29 +45,39 @@ public class WaveManager : MonoBehaviour, IGameStateListener
         }
         if (timer < waveDuration)
         {
+            // Execute the current wave
             string timerString = ((int)(waveDuration - timer)).ToString();
             waveManagerUI.UpdateTimerText(timerString);
             ManageCurrentWave();
         }
         else
         {
+            // Start transition to the next wave
             StartWaveTransition();
         }
     }
+
+    // ==============================
+    // === Methods
+    // ==============================
 
     private void StartWaveTransition()
     {
         isTimerOn = false;
 
+        // Timeout then clear all enemies
         DefeatAllEnemies();
 
         currentWaveIndex++;
 
         if (currentWaveIndex >= Waves.Length)
         {
+            // Enable the game state to complete
             GameManagerController.Instance.SetGameState(GameState.STAGE_COMPLETE);
-        } else
+        }
+        else
         {
+            // If wave complete, move level and open shop
             GameManagerController.Instance.WaveCompletedCallback();
         }
     }
@@ -85,6 +100,9 @@ public class WaveManager : MonoBehaviour, IGameStateListener
         timer = 0;
     }
 
+    /// <summary>
+    /// manage each segment in the current wave
+    /// </summary>
     private void ManageCurrentWave()
     {
         Wave currentWave = Waves[currentWaveIndex];
@@ -97,13 +115,16 @@ public class WaveManager : MonoBehaviour, IGameStateListener
             float tStart = segment.tStartEnd.x / 100 * waveDuration;
             float tEnd = segment.tStartEnd.y / 100 * waveDuration;
 
+            // If timer goes beyong the start and then, moving to the next segments
             if (timer < tStart || timer > tEnd)
                 continue;
 
-            float timeSinceSegmentStart = timer - tStart;
-
+            // Convert frequency into delay
+            // if frequency = 2, => 2 enemies pers second
+            // then delay is 1 / 2 => 1 enemies per 0.5 second
             float spawnDelay = 1f / segment.spawnFrequency;
 
+            float timeSinceSegmentStart = timer - tStart;
             if (localCounters[i] < (timeSinceSegmentStart / spawnDelay))
             {
                 Instantiate(segment.prefab, GetSpawnPosition(), Quaternion.identity, transform);
@@ -116,12 +137,13 @@ public class WaveManager : MonoBehaviour, IGameStateListener
 
     private Vector2 GetSpawnPosition()
     {
+        // Spawn enemy at the sphere of the player
         Vector2 direction = UnityEngine.Random.onUnitSphere;
-        Vector2 offset = direction.normalized * UnityEngine.Random.Range(6, 10);
+        Vector2 offset = direction.normalized * UnityEngine.Random.Range(6f, 10f);
         Vector2 targetPosition = (Vector2)player.transform.position + offset;
 
         targetPosition.x = Mathf.Clamp(targetPosition.x, -27, 27);
-        targetPosition.x = Mathf.Clamp(targetPosition.x, -18, 18);
+        targetPosition.y = Mathf.Clamp(targetPosition.x, -18, 18);
 
         return targetPosition;
     }
@@ -149,6 +171,10 @@ public class WaveManager : MonoBehaviour, IGameStateListener
     }
 }
 
+// ==============================
+// === Wave structs
+// ==============================
+
 [System.Serializable]
 public struct Wave
 {
@@ -160,6 +186,7 @@ public struct Wave
 public struct WaveSegment
 {
     // the duration of each segment is equal to a percentage of the wave duration
+    // Using MinMax slider from Naughty Attribute
     [MinMaxSlider(0, 100)] public Vector2 tStartEnd;
 
     public float spawnFrequency;
