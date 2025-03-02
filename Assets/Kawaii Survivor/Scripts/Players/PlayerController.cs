@@ -48,6 +48,10 @@ public class PlayerController : MonoBehaviour, IGameStateListener, IPlayerStatDe
         HandleMovement();
     }
 
+    /// <summary>
+    /// Only alow First State as GAME to move character, other is false
+    /// </summary>
+    /// <param name="gameState"></param>
     public void GameStateChangedCallBack(GameState gameState)
     {
         if (gameState != GameState.GAME) canMove = false;
@@ -61,7 +65,6 @@ public class PlayerController : MonoBehaviour, IGameStateListener, IPlayerStatDe
             var inputVector = GetMovementVectorNormalized();
             moveDirection = new Vector2(inputVector.x, inputVector.y);
             moveDistance = moveSpeed * Time.deltaTime;
-
             rigidbody2D.linearVelocity = moveDirection * moveDistance;
         }
         else rigidbody2D.linearVelocity = Vector2.zero;

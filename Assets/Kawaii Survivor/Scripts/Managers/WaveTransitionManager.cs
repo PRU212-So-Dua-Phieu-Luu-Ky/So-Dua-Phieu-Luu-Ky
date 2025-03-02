@@ -93,7 +93,7 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
                 break;
             case Stat.CriticalPercent:
                 value = Random.Range(1f, 2f);
-                buttonString = "+" + value.ToString("F2") + "%";
+                buttonString = "+" + value.ToString("F2") + "%"; // 2 decimal
                 break;
             case Stat.MaxHealth:
                 value = Random.Range(1, 5);

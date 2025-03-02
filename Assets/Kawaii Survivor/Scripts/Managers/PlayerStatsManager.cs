@@ -10,7 +10,7 @@ public class PlayerStatsManager : MonoBehaviour
     // ==============================
 
     [Header("Data")]
-    [SerializeField] private CharacterDataSO playerData;
+    [SerializeField] private CharacterDataSO playerData; // Using Scriptable Object
 
     [Header("Settings")]
     private Dictionary<Stat, float> addends = new Dictionary<Stat, float>();     // extra stat modifications
@@ -22,7 +22,10 @@ public class PlayerStatsManager : MonoBehaviour
 
     private void Awake()
     {
+        // Load scriptable object into player stats
         playerStat = playerData.BaseStats;
+
+        // Set all 0 to addends
         foreach (KeyValuePair<Stat, float> kvp in playerStat)
         {
             addends[kvp.Key] = 0;

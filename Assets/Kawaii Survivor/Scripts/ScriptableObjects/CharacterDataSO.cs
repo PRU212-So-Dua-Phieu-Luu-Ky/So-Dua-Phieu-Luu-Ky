@@ -5,9 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Character Data", menuName = "Scriptable Objects/New Character Data", order = 0)]
 public class CharacterDataSO : ScriptableObject
 {
+    // ==============================
+    // === Info
+    // ==============================
+
     [field: SerializeField] public string Name { get; private set; }
     [field: SerializeField] public Sprite Sprite { get; private set; }
     [field: SerializeField] public int PurchasePrice { get; private set; }
+
+    // ==============================
+    // === Stats
+    // ==============================
 
     [HorizontalLine]
     [SerializeField] private float attack;

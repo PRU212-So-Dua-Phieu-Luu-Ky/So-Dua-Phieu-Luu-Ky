@@ -6,6 +6,10 @@ using Random = UnityEngine.Random;
 
 public class PlayerHealth : MonoBehaviour, IPlayerStatDependency
 {
+    // ==============================
+    // === Fields & Props
+    // ==============================
+
     [Header("Settings")]
     [SerializeField] private int baseMaxHealth;
 
@@ -28,6 +32,10 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatDependency
     [Header("Actions")]
     public static Action<Vector2> onAttackedDodged;
 
+    // ==============================
+    // === Lifecycles
+    // ==============================
+
     private void Awake()
     {
         Enemy.onDamageTaken += EnemyTookDamageCallback;
@@ -38,16 +46,12 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatDependency
         Enemy.onDamageTaken -= EnemyTookDamageCallback;
     }
 
-    private void EnemyTookDamageCallback(int damage, Vector2 enemyPos, bool isCriticalHit)
+    // Update is called once per frame
+    private void Update()
     {
-        if (health >= baseMaxHealth) return;
-        float lifeStealValue = damage * lifesteal;
-        float healthToAdd = Mathf.Min(lifeStealValue, maxHealth - health);
-
-        health += healthToAdd;
-        UpdateUI();
+        if (health < maxHealth)
+            RecoverHealth();
     }
-
     private void Start()
     {
         health = maxHealth;
@@ -57,11 +61,18 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatDependency
         UpdateUI();
     }
 
-    // Update is called once per frame
-    private void Update()
+    // ==============================
+    // === Methods
+    // ==============================
+
+    private void EnemyTookDamageCallback(int damage, Vector2 enemyPos, bool isCriticalHit)
     {
-        if (health < maxHealth)
-            RecoverHealth();
+        if (health >= baseMaxHealth) return;
+        float lifeStealValue = damage * lifesteal;
+        float healthToAdd = Mathf.Min(lifeStealValue, maxHealth - health);
+
+        health += healthToAdd;
+        UpdateUI();
     }
 
     private void RecoverHealth()
@@ -77,6 +88,10 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatDependency
         }
     }
 
+    /// <summary>
+    /// Taking Damage + dodge, if health <=0 then GAME_OVER
+    /// </summary>
+    /// <param name="damage"></param>
     public void TakeDamage(int damage)
     {
         if (ShouldDodge())

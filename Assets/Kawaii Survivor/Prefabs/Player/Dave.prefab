@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af89563b2e69c8c4c8043e4c13bc012f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaxHealth: 0
+  baseMaxHealth: 100
   healthSlider: {fileID: 0}
   healthText: {fileID: 0}
 --- !u!114 &3177130920164130314
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobileJoystick: {fileID: 0}
-  baseMoveSpeed: 1
+  baseMoveSpeed: 300
 --- !u!114 &671327397376710827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,6 +396,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deboink
       objectReference: {fileID: 0}
+    - target: {fileID: 8414223242973435099, guid: 39a752dc13aa2204d9122aa66df131de, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -453,6 +457,18 @@ PrefabInstance:
     - target: {fileID: 204886332714329174, guid: aa213592bdb4ea94fb77e970fa94bca4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 586347120128571932, guid: aa213592bdb4ea94fb77e970fa94bca4, type: 3}
+      propertyPath: aimLerp
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 586347120128571932, guid: aa213592bdb4ea94fb77e970fa94bca4, type: 3}
+      propertyPath: attackDelay
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 586347120128571932, guid: aa213592bdb4ea94fb77e970fa94bca4, type: 3}
+      propertyPath: weaponRange
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 731602717315361117, guid: aa213592bdb4ea94fb77e970fa94bca4, type: 3}
       propertyPath: m_Name

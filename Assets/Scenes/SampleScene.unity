@@ -471,7 +471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9118660670172581078, guid: c4b67ff4ecbfdf1488f7aaf929fea6f7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9118660670172581078, guid: c4b67ff4ecbfdf1488f7aaf929fea6f7, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1301,7 +1301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 29, y: -42}
+  m_AnchoredPosition: {x: 29, y: -41.99994}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &391673365
@@ -2012,7 +2012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 29, y: -42}
+  m_AnchoredPosition: {x: 29, y: -41.99994}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &602047152
@@ -2176,7 +2176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 29, y: -42}
+  m_AnchoredPosition: {x: 29, y: -41.99994}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &623076986
@@ -2253,7 +2253,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 29, y: -42}
+  m_AnchoredPosition: {x: 29, y: -41.99994}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &627395898
@@ -55957,7 +55957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9118660670172581078, guid: c4b67ff4ecbfdf1488f7aaf929fea6f7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9118660670172581078, guid: c4b67ff4ecbfdf1488f7aaf929fea6f7, type: 3}
       propertyPath: m_AnchorMin.x
@@ -56610,7 +56610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 29, y: -42}
+  m_AnchoredPosition: {x: 29, y: -41.99994}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1042025539
@@ -56760,7 +56760,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 29, y: -42}
+  m_AnchoredPosition: {x: 29, y: -41.99994}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094665575
@@ -57197,7 +57197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9118660670172581078, guid: c4b67ff4ecbfdf1488f7aaf929fea6f7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9118660670172581078, guid: c4b67ff4ecbfdf1488f7aaf929fea6f7, type: 3}
       propertyPath: m_AnchorMin.x
@@ -57680,7 +57680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 29, y: -42}
+  m_AnchoredPosition: {x: 29, y: -41.99994}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1398292267
@@ -59208,14 +59208,6 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1264186559}
-    - target: {fileID: 46423223392490530, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
-      propertyPath: baseMaxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 671327397376710827, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
-      propertyPath: DEBUG
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 671327397376710827, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
       propertyPath: xpBar
       value: 
@@ -59224,33 +59216,9 @@ PrefabInstance:
       propertyPath: levelText
       value: 
       objectReference: {fileID: 373782302}
-    - target: {fileID: 3154663883955577385, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
-      propertyPath: aimLerp
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3154663883955577385, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
-      propertyPath: baseDamage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3154663883955577385, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
-      propertyPath: attackDelay
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3154663883955577385, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
-      propertyPath: weaponRange
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3154663883955577385, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
-      propertyPath: <Level>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3154663883955577385, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
-      propertyPath: <WeaponData>k__BackingField
-      value: 
-      objectReference: {fileID: 11400000, guid: fb8ba640d626eb54f8b3d9591ad7469e, type: 2}
     - target: {fileID: 4189677522898118816, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
       propertyPath: baseMoveSpeed
-      value: 300
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4189677522898118816, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
       propertyPath: mobileJoystick
@@ -59300,18 +59268,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8195094128725200327, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8569320540084099439, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
-      propertyPath: m_UseAutoMass
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9122036710640461358, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
-      propertyPath: <WeaponData>k__BackingField
-      value: 
-      objectReference: {fileID: 11400000, guid: fb8ba640d626eb54f8b3d9591ad7469e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
