@@ -59218,7 +59218,7 @@ PrefabInstance:
       objectReference: {fileID: 373782302}
     - target: {fileID: 4189677522898118816, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
       propertyPath: baseMoveSpeed
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4189677522898118816, guid: 37c327e714b87a4499f3e2771900a6e0, type: 3}
       propertyPath: mobileJoystick

@@ -17,11 +17,11 @@ public class DamageText : MonoBehaviour
     {
     }
 
-    [NaughtyAttributes.Button]
     public void Animate(string damage, bool isCriticalHit)
     {
         damageText.text = damage;
         damageText.color = isCriticalHit ? Color.red : Color.white;
+
         animator.Play("Damage Text Animation");
     }
 }

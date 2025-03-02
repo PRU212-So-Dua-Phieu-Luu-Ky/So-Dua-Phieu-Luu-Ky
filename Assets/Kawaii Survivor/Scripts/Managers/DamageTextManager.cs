@@ -4,11 +4,19 @@ using UnityEngine.Pool;
 
 public class DamageTextManager : MonoBehaviour
 {
+    // ==============================
+    // === Fields & Props
+    // ==============================
+
     [Header(" Elements ")]
     [SerializeField] private DamageText damageTextPrefab;
 
     [Header(" Pooling ")]
     private ObjectPool<DamageText> damageTextPool;
+
+    // ==============================
+    // === Lifecycles
+    // ==============================
 
     private void Awake()
     {
@@ -27,6 +35,9 @@ public class DamageTextManager : MonoBehaviour
         damageTextPool = new ObjectPool<DamageText>(Create, ActionOnGet, ActionOnRelease, ActionOnDestroy);
     }
 
+    // ==============================
+    // === Methods
+    // ==============================
     private DamageText Create()
     {
         return Instantiate(damageTextPrefab, transform);
@@ -59,7 +70,7 @@ public class DamageTextManager : MonoBehaviour
         if (damageTextInstance != null)
         {
             LeanTween.delayedCall(1, () => damageTextPool.Release(damageTextInstance));
-        };
+        }
     }
 
     private void AttackDodgedCallback(Vector2 playerPositioon)
@@ -74,7 +85,7 @@ public class DamageTextManager : MonoBehaviour
         if (damageTextInstance != null)
         {
             LeanTween.delayedCall(1, () => damageTextPool.Release(damageTextInstance));
-        };
+        }
 
     }
 }

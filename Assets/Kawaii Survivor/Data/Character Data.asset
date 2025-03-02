@@ -22,8 +22,8 @@ MonoBehaviour:
   moveSpeed: 5
   maxHealth: 100
   range: 0
-  healthRecoverySpeed: 0
+  healthRecoverySpeed: 1
   armor: 10
   luck: 0
-  dodge: 20
-  lifesteal: 5
+  dodge: 50
+  lifesteal: 1
