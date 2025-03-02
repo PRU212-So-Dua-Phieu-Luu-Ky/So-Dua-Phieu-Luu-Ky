@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class NewMonoBehaviourScript : MonoBehaviour, IGameStateListener, IPlayerStatDependency
+public class PlayerController : MonoBehaviour, IGameStateListener, IPlayerStatDependency
 {
     [Header("Elements")]
     [SerializeField] private MobileJoystick mobileJoystick;

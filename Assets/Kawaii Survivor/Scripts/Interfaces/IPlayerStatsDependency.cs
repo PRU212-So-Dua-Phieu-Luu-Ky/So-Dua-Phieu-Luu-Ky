@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IPlayerStatDependency 
+public interface IPlayerStatDependency
 {
     void UpdateStats(PlayerStatsManager playerStatsManager);
 }

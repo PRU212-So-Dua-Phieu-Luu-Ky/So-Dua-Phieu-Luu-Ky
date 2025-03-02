@@ -115,6 +115,10 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatDependency
         GameManagerController.Instance.SetGameState(GameState.GAME_OVER);
     }
 
+    /// <summary>
+    /// Update stats triggered by the PlayerStatsManager
+    /// </summary>
+    /// <param name="playerStatsManager"></param>
     public void UpdateStats(PlayerStatsManager playerStatsManager)
     {
         float addedHealth = playerStatsManager.GetStatValue(Stat.MaxHealth);
