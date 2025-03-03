@@ -72,6 +72,17 @@ public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
 
     private void WeaponSelectedCallback(WeaponSelectionContainer weaponSelectionContainerInstance, WeaponDataSO weaponData)
     {
-        Debug.Log("Hello World");
+        //If current selection instance is matching with the children of the container
+        foreach (WeaponSelectionContainer container in weaponSelectionContainersParent.GetComponentsInChildren<WeaponSelectionContainer>())
+        {
+            if (container == weaponSelectionContainerInstance)
+            {
+                container.Select();
+            }
+            else
+            {
+                container.Deselect();
+            }
+        }
     }
 }
