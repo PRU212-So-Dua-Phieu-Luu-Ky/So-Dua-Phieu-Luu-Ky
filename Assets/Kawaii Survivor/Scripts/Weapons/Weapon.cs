@@ -23,7 +23,7 @@ public abstract class Weapon : MonoBehaviour, IPlayerStatDependency
     protected float attackTimer;
 
     [Header("Level")]
-    [field: SerializeField] public int Level { get; private set; }
+    public int Level { get; private set; }
 
     private void Start()
     {
@@ -96,5 +96,12 @@ public abstract class Weapon : MonoBehaviour, IPlayerStatDependency
             weaponRange = WeaponData.GetStatValue(Stat.Range) * multiplier;
         }
 
+    }
+
+    public void UpgradeTo(int targetLevel)
+    {
+        Level = targetLevel;
+
+        ConfigureStats();
     }
 }

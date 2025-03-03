@@ -17,10 +17,13 @@ public class WeaponPosition : MonoBehaviour
 
     }
 
-    public void AssignWeapon(Weapon weapon)
+    public void AssignWeapon(Weapon weapon, int weaponLevel)
     {
-        weapon = Instantiate(weapon, transform);
-        weapon.transform.localPosition = Vector3.zero;
-        weapon.transform.localRotation = Quaternion.identity;
+        // Set the location of the weapon at 6 positions
+        Weapon = Instantiate(weapon, transform);
+        Weapon.transform.localPosition = Vector3.zero;
+        Weapon.transform.localRotation = Quaternion.identity;
+
+        Weapon.UpgradeTo(weaponLevel);
     }
 }

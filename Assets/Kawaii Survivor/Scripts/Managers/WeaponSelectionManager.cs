@@ -77,18 +77,19 @@ public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
         WeaponDataSO weaponData = weaponDatas[UnityEngine.Random.Range(0, weaponDatas.Length)];
 
         // Create instance based on weapon data so
-        int randomLevel = Random.Range(0, 4);
-        weaponSelectionContainerInstance.Configure(weaponData.Sprite, weaponData.Name, randomLevel);
+        int level = Random.Range(0, 4);
+        weaponSelectionContainerInstance.Configure(weaponData.Sprite, weaponData.Name, level);
 
         // Remove listeners and add the listener
         weaponSelectionContainerInstance.Button.onClick.RemoveAllListeners();
-        weaponSelectionContainerInstance.Button.onClick.AddListener(() => WeaponSelectedCallback(weaponSelectionContainerInstance, weaponData));
+        weaponSelectionContainerInstance.Button.onClick.AddListener(() => WeaponSelectedCallback(weaponSelectionContainerInstance, weaponData, level));
     }
 
-    private void WeaponSelectedCallback(WeaponSelectionContainer weaponSelectionContainerInstance, WeaponDataSO weaponData)
+    private void WeaponSelectedCallback(WeaponSelectionContainer weaponSelectionContainerInstance, WeaponDataSO weaponData, int level)
     {
-        // Choose the selected weapon
+        // Choose the selected weapon, generate a random level
         selectedWeapon = weaponData;
+        initialWeaponLevel = level;
 
         //If current selection instance is matching with the children of the container
         foreach (WeaponSelectionContainer container in weaponSelectionContainersParent.GetComponentsInChildren<WeaponSelectionContainer>())
