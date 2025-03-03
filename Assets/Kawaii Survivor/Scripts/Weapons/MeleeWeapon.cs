@@ -136,6 +136,7 @@ public class MeleeWeapon : Weapon
 
     public override void UpdateStats(PlayerStatsManager playerStatsManager)
     {
+        // Base stats based on level
         ConfigureStats();
 
         damage = (int)(damage * (1 + playerStatsManager.GetStatValue(Stat.Attack) / 100));

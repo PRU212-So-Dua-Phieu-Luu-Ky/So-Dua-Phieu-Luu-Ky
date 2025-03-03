@@ -67,7 +67,7 @@ public class RangeWeapon : Weapon
 
         if (closestEnemy != null)
         {
-            targetUpVector = (closestEnemy.GetCenter() - (Vector2) transform.position).normalized;
+            targetUpVector = (closestEnemy.GetCenter() - (Vector2)transform.position).normalized;
             transform.up = targetUpVector;
             ManageShooting();
             return;
@@ -102,16 +102,17 @@ public class RangeWeapon : Weapon
 
     public override void UpdateStats(PlayerStatsManager playerStatsManager)
     {
+        // Configure base stats based on weapon level
         ConfigureStats();
 
-        damage =(int)(damage * (1 + playerStatsManager.GetStatValue(Stat.Attack) / 100));
+        // Update weapon stats based on player stats from upgradable components
+
+        damage = (int)(damage * (1 + playerStatsManager.GetStatValue(Stat.Attack) / 100));
         attackDelay /= 1 + (playerStatsManager.GetStatValue(Stat.AttackSpeed) / 100);
 
         criticalChance = Mathf.RoundToInt(criticalChance * (1 + playerStatsManager.GetStatValue(Stat.CriticalChance) / 100));
         criticalPercent += playerStatsManager.GetStatValue(Stat.CriticalPercent);
 
         weaponRange += playerStatsManager.GetStatValue(Stat.Range) / 10;
-
-
     }
 }
