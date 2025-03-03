@@ -11,6 +11,9 @@ public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
     [SerializeField] private Transform weaponSelectionContainersParent;
     [SerializeField] private WeaponSelectionContainer weaponSelectionContainerPrefab;
 
+    [Header(" Data ")]
+    [SerializeField] private WeaponDataSO[] weaponDatas;
+
     // ==============================
     // === Lifecycles
     // ==============================
@@ -53,7 +56,22 @@ public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
 
     private void GenerateSelectionWeaponContainer()
     {
-        WeaponSelectionContainer containerInstance
+        WeaponSelectionContainer weaponSelectionContainerInstance
             = Instantiate(weaponSelectionContainerPrefab, weaponSelectionContainersParent);
+
+        // Get random weapon data injected from the inspector
+        WeaponDataSO weaponData = weaponDatas[UnityEngine.Random.Range(0, weaponDatas.Length)];
+
+        // Create instance based on weapon data so
+        weaponSelectionContainerInstance.Configure(weaponData.Sprite, weaponData.Name);
+
+        // Remove listeners and add the listener
+        weaponSelectionContainerInstance.Button.onClick.RemoveAllListeners();
+        weaponSelectionContainerInstance.Button.onClick.AddListener(() => WeaponSelectedCallback(weaponSelectionContainerInstance, weaponData));
+    }
+
+    private void WeaponSelectedCallback(WeaponSelectionContainer weaponSelectionContainerInstance, WeaponDataSO weaponData)
+    {
+        Debug.Log("Hello World");
     }
 }

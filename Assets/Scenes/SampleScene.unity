@@ -59094,6 +59094,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponSelectionContainersParent: {fileID: 1467979167}
   weaponSelectionContainerPrefab: {fileID: 6762748832647934906, guid: cdb1ebd2762fe5b479e3e19fa722c306, type: 3}
+  weaponDatas:
+  - {fileID: 11400000, guid: 39b94c2a5292fa446aba860b308f2cb8, type: 2}
+  - {fileID: 11400000, guid: fb8ba640d626eb54f8b3d9591ad7469e, type: 2}
 --- !u!1 &1776883999
 GameObject:
   m_ObjectHideFlags: 0

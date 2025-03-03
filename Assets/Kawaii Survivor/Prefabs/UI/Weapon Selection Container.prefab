@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 18
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -483,3 +483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0821b12ab882f944abdca54fb497f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponIcon: {fileID: 16979312213011673}
+  nameText: {fileID: 1069648761190500163}
+  <Button>k__BackingField: {fileID: 2012015831888296426}
