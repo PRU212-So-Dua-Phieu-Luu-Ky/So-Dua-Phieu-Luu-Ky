@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
@@ -10,9 +9,13 @@ public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
     [Header("Elements")]
     [SerializeField] private Transform weaponSelectionContainersParent;
     [SerializeField] private WeaponSelectionContainer weaponSelectionContainerPrefab;
+    [SerializeField] private PlayerWeapons playerWeapons;
 
     [Header(" Data ")]
     [SerializeField] private WeaponDataSO[] weaponDatas;
+
+    private WeaponDataSO selectedWeapon;
+    private int initialWeaponLevel;
 
     // ==============================
     // === Lifecycles
@@ -36,12 +39,23 @@ public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
     {
         switch (gameState)
         {
+            case GameState.GAME:
+
+                // dont add twice in the game
+                if (selectedWeapon == null) return;
+                playerWeapons.AddWeapon(selectedWeapon, initialWeaponLevel);
+                selectedWeapon = null;
+                initialWeaponLevel = 0;
+
+                break;
+
             case GameState.WEAPON_SELECTION:
                 Configure();
                 break;
         }
     }
 
+    [NaughtyAttributes.Button]
     private void Configure()
     {
         // Clear our parent, no children
@@ -63,7 +77,8 @@ public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
         WeaponDataSO weaponData = weaponDatas[UnityEngine.Random.Range(0, weaponDatas.Length)];
 
         // Create instance based on weapon data so
-        weaponSelectionContainerInstance.Configure(weaponData.Sprite, weaponData.Name);
+        int randomLevel = Random.Range(0, 4);
+        weaponSelectionContainerInstance.Configure(weaponData.Sprite, weaponData.Name, randomLevel);
 
         // Remove listeners and add the listener
         weaponSelectionContainerInstance.Button.onClick.RemoveAllListeners();
@@ -72,6 +87,9 @@ public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
 
     private void WeaponSelectedCallback(WeaponSelectionContainer weaponSelectionContainerInstance, WeaponDataSO weaponData)
     {
+        // Choose the selected weapon
+        selectedWeapon = weaponData;
+
         //If current selection instance is matching with the children of the container
         foreach (WeaponSelectionContainer container in weaponSelectionContainersParent.GetComponentsInChildren<WeaponSelectionContainer>())
         {

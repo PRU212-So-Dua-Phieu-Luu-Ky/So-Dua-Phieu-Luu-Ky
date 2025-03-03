@@ -417,7 +417,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 89881996876820253, guid: 54d7f48ae17a46d419453569754766f9, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -486,3 +486,5 @@ MonoBehaviour:
   weaponIcon: {fileID: 16979312213011673}
   nameText: {fileID: 1069648761190500163}
   <Button>k__BackingField: {fileID: 2012015831888296426}
+  levelDependentImages:
+  - {fileID: 1336137773987079712}
