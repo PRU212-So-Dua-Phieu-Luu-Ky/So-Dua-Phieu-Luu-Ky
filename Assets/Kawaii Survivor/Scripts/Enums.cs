@@ -23,7 +23,7 @@ public enum Stat
     Armor,
     Luck,
     Dodge,
-    Lifesteal
+    LifeSteal
 }
 
 public static class Enums

@@ -13,11 +13,7 @@ public class CharacterDataSO : ScriptableObject
     [field: SerializeField] public Sprite Sprite { get; private set; }
     [field: SerializeField] public int PurchasePrice { get; private set; }
 
-    // ==============================
-    // === Stats
-    // ==============================
-
-    [HorizontalLine]
+    [NaughtyAttributes.HorizontalLine]
     [SerializeField] private float attack;
     [SerializeField] private float attackSpeed;
     [SerializeField] private float criticalChance;
@@ -29,27 +25,29 @@ public class CharacterDataSO : ScriptableObject
     [SerializeField] private float armor;
     [SerializeField] private float luck;
     [SerializeField] private float dodge;
-    [SerializeField] private float lifesteal;
-
+    [SerializeField] private float lifeSteal;
     public Dictionary<Stat, float> BaseStats
     {
         get
         {
-            return new Dictionary<Stat, float>()
+            return new Dictionary<Stat, float>
             {
-                {Stat.Attack, attack },
-                {Stat.AttackSpeed, attackSpeed },
-                {Stat.CriticalChance, criticalChance },
-                {Stat.CriticalPercent, criticalPercent },
-                {Stat.MoveSpeed, moveSpeed },
-                {Stat.MaxHealth, maxHealth },
-                {Stat.Range, range },
-                {Stat.HealthRecoverySpeed, healthRecoverySpeed },
-                {Stat.Armor, armor },
-                {Stat.Luck, luck },
-                {Stat.Dodge, dodge },
-                {Stat.Lifesteal, lifesteal },
+                { Stat.Attack, attack},
+                { Stat.AttackSpeed, attackSpeed},
+                { Stat.CriticalChance, criticalChance},
+                { Stat.CriticalPercent, criticalPercent},
+                { Stat.MoveSpeed, moveSpeed},
+                { Stat.MaxHealth, maxHealth},
+                { Stat.Range, range},
+                { Stat.HealthRecoverySpeed, healthRecoverySpeed},
+                { Stat.Armor, armor},
+                { Stat.Luck, luck},
+                { Stat.Dodge, dodge},
+                { Stat.LifeSteal, lifeSteal},
             };
+
         }
+
+        private set { }
     }
 }

@@ -15,6 +15,7 @@ public class PlayerStatsManager : MonoBehaviour
     [Header("Settings")]
     private Dictionary<Stat, float> addends = new Dictionary<Stat, float>();     // extra stat modifications
     private Dictionary<Stat, float> playerStat = new Dictionary<Stat, float>();  // current player stats
+    private Dictionary<Stat, float> objectAddends = new Dictionary<Stat, float>();
 
     // ==============================
     // === Lifecycles
@@ -29,6 +30,7 @@ public class PlayerStatsManager : MonoBehaviour
         foreach (KeyValuePair<Stat, float> kvp in playerStat)
         {
             addends[kvp.Key] = 0;
+            objectAddends[kvp.Key] = 0;
         }
     }
 
@@ -64,9 +66,19 @@ public class PlayerStatsManager : MonoBehaviour
         UpdatePlayerStats();
     }
 
+    public void AddObject(Dictionary<Stat, float> objectStats)
+    {
+        foreach (KeyValuePair<Stat, float> kvp in objectStats)
+        {
+            objectAddends[kvp.Key] += kvp.Value;
+        }
+
+        UpdatePlayerStats();
+    }
+
     public float GetStatValue(Stat stat)
     {
-        float value = playerStat[stat] + addends[stat];
+        float value = playerStat[stat] + addends[stat] + objectAddends[stat];
         return value;
     }
 
@@ -83,5 +95,6 @@ public class PlayerStatsManager : MonoBehaviour
             dependency.UpdateStats(this);
         }
     }
+
 }
 

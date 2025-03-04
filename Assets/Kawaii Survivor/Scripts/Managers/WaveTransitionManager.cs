@@ -115,7 +115,7 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
                 value = Random.Range(1, 10);
                 buttonString = "+" + value.ToString() + "%";
                 break;
-            case Stat.Lifesteal:
+            case Stat.LifeSteal:
                 value = Random.Range(1, 10);
                 buttonString = "+" + value.ToString() + "%";
                 break;
