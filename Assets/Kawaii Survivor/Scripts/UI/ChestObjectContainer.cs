@@ -1,9 +1,9 @@
-using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeaponSelectionContainer : MonoBehaviour
+public class ChestObjectContainer : MonoBehaviour
 {
     // ==============================
     // === Fields & Props
@@ -12,7 +12,8 @@ public class WeaponSelectionContainer : MonoBehaviour
     [Header("Elements")]
     [SerializeField] private Image weaponIcon;
     [SerializeField] private TextMeshProUGUI nameText;
-    [field: SerializeField] public Button Button { get; set; }
+    [field: SerializeField] public Button TakeButton { get; set; }
+    [field: SerializeField] public Button RecycleButton { get; set; }
 
     [Header("Colors")]
     [SerializeField] private Image[] levelDependentImages;
@@ -35,31 +36,18 @@ public class WeaponSelectionContainer : MonoBehaviour
     // === Methods
     // ==============================
 
-    public void Configure(Sprite spirte, string name, int level)
+    public void Configure(ObjectDataSO objectData)
     {
         // Configure icon and name
-        weaponIcon.sprite = spirte;
-        nameText.text = name + $"(Level {level + 1})";
+        weaponIcon.sprite = objectData.Icon;
+        nameText.text = name;
 
         //Configure image. color based on level
-        Color imageColor = ColorHolder.GetColor(level);
+        Color imageColor = ColorHolder.GetColor(objectData.Rarity);
+
         foreach (Image image in levelDependentImages)
         {
             image.color = imageColor;
         }
-    }
-
-    // Scale down the current game object
-    public void Deselect()
-    {
-        LeanTween.cancel(gameObject);
-        LeanTween.scale(gameObject, Vector3.one, .3f);
-    }
-
-    // Scale up the current game object
-    public void Select()
-    {
-        LeanTween.cancel(gameObject);
-        LeanTween.scale(gameObject, Vector3.one * 1.075f, .3f).setEase(LeanTweenType.easeInOutBounce);
     }
 }

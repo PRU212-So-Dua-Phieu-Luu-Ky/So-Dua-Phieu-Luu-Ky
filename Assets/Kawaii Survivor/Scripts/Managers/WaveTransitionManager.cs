@@ -12,6 +12,23 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
     [Header(" Elements ")]
     [SerializeField] private UpgradeContainer[] upgradeContainers;
     [SerializeField] private PlayerStatsManager playerStatsManager;
+
+    [Header(" Settings ")]
+    private int chestCollected;
+    // ==============================
+    // === Lifecycles
+    // ==============================
+
+    private void Awake()
+    {
+        Chest.onCollected += ChestCollectedCallback;
+    }
+
+    private void OnDestroy()
+    {
+        Chest.onCollected -= ChestCollectedCallback;
+    }
+
     void Start()
     {
 
@@ -23,17 +40,45 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
 
     }
 
+    // ==============================
+    // === Methods
+    // ==============================
+
+    /// <summary>
+    /// Ch
+    /// </summary>
+    private void ChestCollectedCallback()
+    {
+        chestCollected++;
+    }
+
     public void GameStateChangedCallBack(GameState gameState)
     {
         // State trnasition to the next wave
         switch (gameState)
         {
             case GameState.WAVE_TRANSITION:
-                ConfigureUpgradeContainers();
+                TryOpenChest();
                 break;
 
         }
+    }
 
+    private void TryOpenChest()
+    {
+        if (chestCollected > 0)
+        {
+            ShowObject();
+        }
+        else
+        {
+            ConfigureUpgradeContainers();
+        }
+    }
+
+    private void ShowObject()
+    {
+        Debug.Log("Showing Chest");
     }
 
     /// <summary>
