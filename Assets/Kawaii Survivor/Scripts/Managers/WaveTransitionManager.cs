@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public class WaveTransitionManager : MonoBehaviour, IGameStateListener
 {
+    public static WaveTransitionManager instance { get; private set; }
+
     [Header("Player")]
     [SerializeField] private PlayerObjects playerObjects;
 
@@ -18,7 +20,7 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
     [Header(" Chest Management ")]
     [SerializeField] private ChestObjectContainer chestContainerPrefab;
     [SerializeField] private Transform chestContainerParent;
-    //private ChestObjectContainer currentChestContainer;
+    //private ChestObjectContainer containerInstance;
     private int chestCollected;
 
     // ==============================
@@ -27,6 +29,15 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         Chest.onCollected += ChestCollectedCallback;
     }
 
@@ -72,6 +83,9 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
 
     private void TryOpenChest()
     {
+        // clear the open chest
+        chestContainerParent.Clear();
+
         if (chestCollected > 0)
         {
             ShowObject();
@@ -84,23 +98,34 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
 
     private void ShowObject()
     {
+        // Count how many chest do we get
         chestCollected--;
 
         upgradeContainersParent.SetActive(false);
 
+        // Get a list of object datas from the Resource Manager
         ObjectDataSO[] objectDatas = ResourcesManager.Objects;
         ObjectDataSO objectData = objectDatas[Random.Range(0, objectDatas.Length)];
 
-        var currentChestContainer = Instantiate(chestContainerPrefab, chestContainerParent);
-        currentChestContainer.Configure(objectData);
-        currentChestContainer.TakeButton.onClick.AddListener(() => TakeButtonCallback(objectData));
+        var containerInstance = Instantiate(chestContainerPrefab, chestContainerParent);
+        containerInstance.Configure(objectData);
+        containerInstance.TakeButton.onClick.AddListener(() => TakeButtonCallback(objectData));
+        containerInstance.RecycleButton.onClick.AddListener(() => RecycleButtonCallback(objectData));
     }
 
     private void TakeButtonCallback(ObjectDataSO objectToTake)
     {
-        playerObjects.AddObject(objectToTake);
+        Debug.Log("CLCDCWD");
+        playerObjects.AddObject(objectToTake);  // Add stats of chest intothe current player
+        TryOpenChest();                         // Open the next chest
+    }
+
+    private void RecycleButtonCallback(ObjectDataSO objectToRecycle)
+    {
+        CurrencyManager.instance.AddCurrency(objectToRecycle.RecyclePrice);
         TryOpenChest();
     }
+
 
     /// <summary>
     /// Set random stats for upgrable buttons
@@ -124,6 +149,12 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
             upgradeContainers[i].Button.onClick.AddListener(() => action?.Invoke());
             upgradeContainers[i].Button.onClick.AddListener(() => GameManagerController.Instance.WaveCompletedCallback());
         }
+    }
+
+
+    public bool HasCollectedChest()
+    {
+        return chestCollected > 0;
     }
 
     /// <summary>

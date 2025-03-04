@@ -25,7 +25,6 @@ public class PlayerLevel : MonoBehaviour
     private void CandyCollectedCallback(Candy candy)
     {
         currentXp++;
-        Debug.Log(currentXp);
         if (currentXp >= requiredXp)
         {
             levelUp();

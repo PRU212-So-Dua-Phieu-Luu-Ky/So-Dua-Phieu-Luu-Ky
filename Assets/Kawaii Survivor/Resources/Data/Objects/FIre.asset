@@ -15,6 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: 
   <Icon>k__BackingField: {fileID: 0}
   <Price>k__BackingField: 0
+  <RecyclePrice>k__BackingField: 75
   <Rarity>k__BackingField: 0
   statDatas:
   - stat: 0

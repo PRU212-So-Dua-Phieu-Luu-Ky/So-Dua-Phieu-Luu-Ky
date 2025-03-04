@@ -15,17 +15,10 @@ MonoBehaviour:
   <Name>k__BackingField: Heart
   <Icon>k__BackingField: {fileID: 21300000, guid: 94243d9d34caa244bab355e648c592f6, type: 3}
   <Price>k__BackingField: 100
+  <RecyclePrice>k__BackingField: 75
   <Rarity>k__BackingField: 1
-  statDatas: []
-  attack: 0
-  attackSpeed: 0
-  criticalChance: 0
-  criticalPercent: 0
-  moveSpeed: 0
-  maxHealth: 300
-  range: 0
-  healthRecoverySpeed: 0
-  armor: 0
-  luck: 0
-  dodge: 0
-  lifesteal: 0
+  statDatas:
+  - stat: 5
+    value: 100
+  - stat: 0
+    value: 10
