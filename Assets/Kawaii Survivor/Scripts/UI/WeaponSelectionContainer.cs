@@ -42,6 +42,7 @@ public class WeaponSelectionContainer : MonoBehaviour
     // === Methods
     // ==============================
 
+    // Configure the upgradable container
     public void Configure(Sprite spirte, string name, int level, WeaponDataSO weaponData)
     {
         // Configure icon and name
@@ -60,6 +61,7 @@ public class WeaponSelectionContainer : MonoBehaviour
         ConfigureStatContainers(calculatedStats);
     }
 
+    // Configure the weapon's stat container
     private void ConfigureStatContainers(Dictionary<Stat, float> calculatedStats)
     {
         StatContainerManager.GenerateStatContainers(calculatedStats, statContainersParent);
