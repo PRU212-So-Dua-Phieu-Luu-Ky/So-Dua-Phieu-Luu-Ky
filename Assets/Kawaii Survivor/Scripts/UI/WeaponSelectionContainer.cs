@@ -19,8 +19,6 @@ public class WeaponSelectionContainer : MonoBehaviour
 
     [Header("Stats")]
     [SerializeField] private Transform statContainersParent;
-    [SerializeField] private StatContainer statContainersPrefab;
-    [SerializeField] private Sprite statIcon;
     private WeaponDataSO weaponData;
 
     [Header("Colors")]
@@ -52,26 +50,19 @@ public class WeaponSelectionContainer : MonoBehaviour
 
         //Configure image. color based on level
         Color imageColor = ColorHolder.GetColor(level);
+        nameText.color = imageColor;
         foreach (Image image in levelDependentImages)
         {
             image.color = imageColor;
         }
 
-        ConfigureStatContainers(weaponData);
+        Dictionary<Stat, float> calculatedStats = WeaponStatsCalculator.GetStats(weaponData, level);
+        ConfigureStatContainers(calculatedStats);
     }
 
-    private void ConfigureStatContainers(WeaponDataSO weaponData)
+    private void ConfigureStatContainers(Dictionary<Stat, float> calculatedStats)
     {
-        foreach (KeyValuePair<Stat, float> kvp in weaponData.BaseStats)
-        {
-            StatContainer containerInstance = Instantiate(statContainersPrefab, statContainersParent);
-
-            Sprite statIcon = ResourcesManager.GetStatIcon(kvp.Key);
-            string statName = Enums.FormatStatName(kvp.Key);
-            string statValue = kvp.Value.ToString();
-
-            containerInstance.Configure(statIcon, statName, statValue);
-        }
+        StatContainerManager.GenerateStatContainers(calculatedStats, statContainersParent);
     }
 
     // Scale down the current game object

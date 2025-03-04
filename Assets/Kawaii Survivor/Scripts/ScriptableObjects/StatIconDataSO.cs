@@ -4,11 +4,6 @@ using UnityEngine;
 public class StatIconDataSO : ScriptableObject
 {
     [field: SerializeField] public StatIcon[] StatIcons { get; private set; }
-
-    public static Sprite GetStatIcon(Stat stat)
-    {
-        return null;
-    }
 }
 
 [System.Serializable]

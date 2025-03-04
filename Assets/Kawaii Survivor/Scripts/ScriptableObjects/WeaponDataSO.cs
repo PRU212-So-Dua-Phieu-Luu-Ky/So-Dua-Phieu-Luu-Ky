@@ -11,7 +11,7 @@ public class WeaponDataSO : ScriptableObject
     [field: SerializeField] public Sprite Sprite { get; private set; }
     [field: SerializeField] public int PurchasePrice { get; private set; }
 
-    [field: SerializeField] public Weapon prefab { get; private set; }
+    [field: SerializeField] public Weapon Prefab { get; private set; }
 
     [SerializeField] private float attack;
     [SerializeField] private float attackSpeed;

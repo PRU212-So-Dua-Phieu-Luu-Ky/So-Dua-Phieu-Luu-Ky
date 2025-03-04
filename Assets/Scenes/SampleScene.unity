@@ -815,6 +815,7 @@ Transform:
   - {fileID: 414066182}
   - {fileID: 1030788758}
   - {fileID: 1744253201}
+  - {fileID: 1380034768}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &208087143
@@ -58640,6 +58641,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4688654100652707521, guid: b3d6d55a0140f6f4d80f184b7b563f9c, type: 3}
   m_PrefabInstance: {fileID: 1318776149}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1380034767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1380034768}
+  - component: {fileID: 1380034769}
+  m_Layer: 0
+  m_Name: StatContainerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1380034768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380034767}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 155532859}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1380034769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380034767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2a0f34a996f4440a776cfc728ea42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statContainer: {fileID: 2337275447603966563, guid: 919b3fa8f055ed14bae6bcc034bbc3f2, type: 3}
 --- !u!4 &1385387326 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3223794672053268010, guid: e7ce47731115c2b4b94c12dc12e34457, type: 3}
@@ -61132,6 +61178,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1467979167}
     m_Modifications:
+    - target: {fileID: 200181460029617191, guid: a66e36c72818f88489c54ad42da2a2a0, type: 3}
+      propertyPath: m_fontSize
+      value: 47.7
+      objectReference: {fileID: 0}
     - target: {fileID: 919033877436204664, guid: a66e36c72818f88489c54ad42da2a2a0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -61385,7 +61435,8 @@ PrefabInstance:
       value: Weapon Selection Container
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 327238298228977866, guid: a66e36c72818f88489c54ad42da2a2a0, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a66e36c72818f88489c54ad42da2a2a0, type: 3}

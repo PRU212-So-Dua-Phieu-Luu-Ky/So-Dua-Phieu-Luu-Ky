@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,14 +25,14 @@ public class StatContainer : MonoBehaviour
         statValueText.text = statValue;
     }
 
-    void Start()
+    public float GetFontSize()
     {
-
+        return statText.fontSize;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetFontSize(float fontSize)
     {
-
+        statText.fontSizeMax = fontSize;
+        statValueText.fontSizeMax = fontSize;
     }
 }
