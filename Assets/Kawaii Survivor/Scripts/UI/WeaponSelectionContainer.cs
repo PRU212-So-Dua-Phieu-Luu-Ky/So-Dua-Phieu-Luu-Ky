@@ -1,7 +1,8 @@
-using System;
-using TMPro;
-using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System;
+using UnityEngine;
+using System.Collections.Generic;
 
 public class WeaponSelectionContainer : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class WeaponSelectionContainer : MonoBehaviour
     [SerializeField] private Image weaponIcon;
     [SerializeField] private TextMeshProUGUI nameText;
     [field: SerializeField] public Button Button { get; set; }
+
+    [Header("Stats")]
+    [SerializeField] private Transform statContainersParent;
+    [SerializeField] private StatContainer statContainersPrefab;
+    [SerializeField] private Sprite statIcon;
+    private WeaponDataSO weaponData;
 
     [Header("Colors")]
     [SerializeField] private Image[] levelDependentImages;
@@ -35,7 +42,7 @@ public class WeaponSelectionContainer : MonoBehaviour
     // === Methods
     // ==============================
 
-    public void Configure(Sprite spirte, string name, int level)
+    public void Configure(Sprite spirte, string name, int level, WeaponDataSO weaponData)
     {
         // Configure icon and name
         weaponIcon.sprite = spirte;
@@ -46,6 +53,17 @@ public class WeaponSelectionContainer : MonoBehaviour
         foreach (Image image in levelDependentImages)
         {
             image.color = imageColor;
+        }
+
+        ConfigureStatContainers(weaponData);
+    }
+
+    private void ConfigureStatContainers(WeaponDataSO weaponData)
+    {
+        foreach (KeyValuePair<Stat, float> kvp in weaponData.BaseStats)
+        {
+            StatContainer containerInstance = Instantiate(statContainersPrefab, statContainersParent);
+            containerInstance.Configure(statIcon, Enums.FormatStatName(kvp.Key), kvp.Value.ToString());
         }
     }
 
