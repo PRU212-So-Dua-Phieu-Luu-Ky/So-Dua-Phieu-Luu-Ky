@@ -139,12 +139,15 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
         {
             int randomIndex = Random.Range(0, Enum.GetValues(typeof(Stat)).Length);  // get random index
             var stat = (Stat)Enum.GetValues(typeof(Stat)).GetValue(randomIndex);     // get random stats on list
+
+            Sprite upgradeSprite = ResourcesManager.GetStatIcon(stat);
+
             string randomStatString = Enums.FormatStatName(stat);                    // format the stat name
 
             string buttonString;
             Action action = GenerateActionToPerform(stat, out buttonString);              // generate the value 
 
-            upgradeContainers[i].Configure(null, randomStatString, buttonString);
+            upgradeContainers[i].Configure(upgradeSprite, randomStatString, buttonString);
             upgradeContainers[i].Button.onClick.RemoveAllListeners();
             upgradeContainers[i].Button.onClick.AddListener(() => action?.Invoke());
             upgradeContainers[i].Button.onClick.AddListener(() => GameManagerController.Instance.WaveCompletedCallback());

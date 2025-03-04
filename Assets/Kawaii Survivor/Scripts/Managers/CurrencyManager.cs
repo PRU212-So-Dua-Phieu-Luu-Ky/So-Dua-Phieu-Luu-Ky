@@ -14,7 +14,6 @@ namespace Assets.Kawaii_Survivor.Scripts.Managers
         // ==============================
 
         public static CurrencyManager instance;
-
         [field: SerializeField] public int Currency { get; private set; }
 
         private void Awake()
