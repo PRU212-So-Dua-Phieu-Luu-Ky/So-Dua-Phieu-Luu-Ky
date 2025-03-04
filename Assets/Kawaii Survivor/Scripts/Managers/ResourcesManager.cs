@@ -1,18 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Kawaii_Survivor.Scripts.Managers
 {
     class ResourcesManager
     {
-        const string statIconsDataPath = "Data/StatIconDataSO";
+        // ==============================
+        // === Fields & Props
+        // ==============================
 
+        const string statIconsDataPath = "Data/StatIconDataSO";
+        const string objectDatasPath = "Data/Objects/";
         private static StatIcon[] statIcons;
+
+        private static ObjectDataSO[] objectDatas;
+        public static ObjectDataSO[] Objects
+        {
+            get
+            {
+                if (objectDatas == null)
+                    return Resources.LoadAll<ObjectDataSO>(objectDatasPath);
+
+                return objectDatas;
+            }
+            private set { }
+        }
+
+        // ==============================
+        // === Methods
+        // ==============================
 
         public static Sprite GetStatIcon(Stat stat)
         {
@@ -32,6 +47,6 @@ namespace Assets.Kawaii_Survivor.Scripts.Managers
 
             Debug.LogError("No icon found for stat : " + stat);
             return null;
-        }
+        }        
     }
 }

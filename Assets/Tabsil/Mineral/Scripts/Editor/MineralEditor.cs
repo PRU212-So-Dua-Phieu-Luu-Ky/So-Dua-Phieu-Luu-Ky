@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
@@ -10,7 +9,7 @@ using UnityEditor;
 namespace Tabsil.Mineral
 {
     [InitializeOnLoad]
-    public static class MineralEditor 
+    public static class MineralEditor
     {
         private static MineralPrefs mineralPrefs;
         private static string dataPath;

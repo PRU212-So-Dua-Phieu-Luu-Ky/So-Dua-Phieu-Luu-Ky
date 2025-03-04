@@ -16,7 +16,7 @@ public class MeleeWeapon : Weapon
 
     [SerializeField] private float hitDetectionRadius;
     [SerializeField] private BoxCollider2D hitCollider;
-    
+
     [Header("Animation")]
     [SerializeField] private Animator animator;
 
@@ -129,7 +129,7 @@ public class MeleeWeapon : Weapon
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, weaponRange);
 
-        if (hitDetectionTransform == null) return; 
+        if (hitDetectionTransform == null) return;
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(hitDetectionTransform.position, hitDetectionRadius);
     }

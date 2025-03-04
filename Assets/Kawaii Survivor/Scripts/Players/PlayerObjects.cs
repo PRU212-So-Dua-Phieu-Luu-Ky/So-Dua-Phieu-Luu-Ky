@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ public class PlayerObjects : MonoBehaviour
 
     void Start()
     {
-        foreach(ObjectDataSO objectData in Objects)
+        foreach (ObjectDataSO objectData in Objects)
         {
             playerStatsManager.AddObject(objectData.BaseStats);
         }
@@ -29,5 +30,11 @@ public class PlayerObjects : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void AddObject(ObjectDataSO objectToTake)
+    {
+        Objects.Add(objectToTake);
+        playerStatsManager.AddObject(objectToTake.BaseStats);
     }
 }

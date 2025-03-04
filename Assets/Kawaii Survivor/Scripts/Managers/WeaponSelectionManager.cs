@@ -78,7 +78,7 @@ public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
 
         // Create instance based on weapon data so
         int level = Random.Range(0, 4);
-        weaponSelectionContainerInstance.Configure(weaponData.Sprite, weaponData.Name, level, weaponData);
+        weaponSelectionContainerInstance.Configure(weaponData, level);
 
         // Remove listeners and add the listener
         weaponSelectionContainerInstance.Button.onClick.RemoveAllListeners();

@@ -1,10 +1,8 @@
-using UnityEngine.UI;
-using TMPro;
-using System;
-using UnityEngine;
-using System.Collections.Generic;
-using System.Resources;
 using Assets.Kawaii_Survivor.Scripts.Managers;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponSelectionContainer : MonoBehaviour
 {
@@ -43,11 +41,11 @@ public class WeaponSelectionContainer : MonoBehaviour
     // ==============================
 
     // Configure the upgradable container
-    public void Configure(Sprite spirte, string name, int level, WeaponDataSO weaponData)
+    public void Configure(WeaponDataSO weaponData, int level)
     {
         // Configure icon and name
-        weaponIcon.sprite = spirte;
-        nameText.text = name + $"(Level {level + 1})";
+        weaponIcon.sprite = weaponData.Sprite;
+        nameText.text = weaponData.Name + $"(Level {level + 1})";
 
         //Configure image. color based on level
         Color imageColor = ColorHolder.GetColor(level);

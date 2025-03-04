@@ -1,20 +1,26 @@
+using Assets.Kawaii_Survivor.Scripts.Managers;
 using NaughtyAttributes;
-using NUnit.Framework.Internal;
 using System;
-using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class WaveTransitionManager : MonoBehaviour, IGameStateListener
 {
+    [Header("Player")]
+    [SerializeField] private PlayerObjects playerObjects;
+
     [Header(" Elements ")]
     [SerializeField] private UpgradeContainer[] upgradeContainers;
+    [SerializeField] private GameObject upgradeContainersParent;
     [SerializeField] private PlayerStatsManager playerStatsManager;
 
-    [Header(" Settings ")]
+    [Header(" Chest Management ")]
+    [SerializeField] private ChestObjectContainer chestContainerPrefab;
+    [SerializeField] private Transform chestContainerParent;
+    //private ChestObjectContainer currentChestContainer;
     private int chestCollected;
+
     // ==============================
     // === Lifecycles
     // ==============================
@@ -78,7 +84,22 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
 
     private void ShowObject()
     {
-        Debug.Log("Showing Chest");
+        chestCollected--;
+
+        upgradeContainersParent.SetActive(false);
+
+        ObjectDataSO[] objectDatas = ResourcesManager.Objects;
+        ObjectDataSO objectData = objectDatas[Random.Range(0, objectDatas.Length)];
+
+        var currentChestContainer = Instantiate(chestContainerPrefab, chestContainerParent);
+        currentChestContainer.Configure(objectData);
+        currentChestContainer.TakeButton.onClick.AddListener(() => TakeButtonCallback(objectData));
+    }
+
+    private void TakeButtonCallback(ObjectDataSO objectToTake)
+    {
+        playerObjects.AddObject(objectToTake);
+        TryOpenChest();
     }
 
     /// <summary>
@@ -87,6 +108,8 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
     [Button]
     private void ConfigureUpgradeContainers()
     {
+        upgradeContainersParent.SetActive(true);
+
         for (int i = 0; i < upgradeContainers.Length; i++)
         {
             int randomIndex = Random.Range(0, Enum.GetValues(typeof(Stat)).Length);  // get random index

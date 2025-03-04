@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +25,7 @@ public class PlayerLevel : MonoBehaviour
     private void CandyCollectedCallback(Candy candy)
     {
         currentXp++;
+        Debug.Log(currentXp);
         if (currentXp >= requiredXp)
         {
             levelUp();

@@ -21,3 +21,5 @@ MonoBehaviour:
     value: 3
   - stat: 8
     value: -2
+  - stat: 5
+    value: 10

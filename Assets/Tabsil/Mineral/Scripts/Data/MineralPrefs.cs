@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,8 +10,8 @@ namespace Tabsil.Mineral
 
         public MineralPrefs()
         {
-            if(folderDatas == null)
-                folderDatas = new List<FolderData>();        
+            if (folderDatas == null)
+                folderDatas = new List<FolderData>();
         }
 
         public void Initialize()
@@ -44,7 +43,7 @@ namespace Tabsil.Mineral
                     folderDatas[i].SetValue(keyValuePair.Value);
                     return;
                 }
-            }            
+            }
 
             folderDatas.Add(new FolderData(keyValuePair.Key, keyValuePair.Value));
         }

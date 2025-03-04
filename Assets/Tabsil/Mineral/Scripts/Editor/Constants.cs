@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Tabsil.Mineral
 {
-    public static class Constants 
+    public static class Constants
     {
         public static Color viewColor = new Color32(51, 51, 51, 255);
         public static Color treeColor = new Color32(56, 56, 56, 255);

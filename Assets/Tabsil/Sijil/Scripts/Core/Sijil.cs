@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using UnityEngine;
-using System.Linq;
 using Leguar.TotalJSON;
 using System;
+using System.IO;
+using System.Linq;
 using System.Reflection;
+using UnityEngine;
 
 
 namespace Tabsil.Sijil
@@ -69,10 +67,10 @@ namespace Tabsil.Sijil
 
             }
 
-            
+
             foreach (IWantToBeSaved saveable in FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IWantToBeSaved>())
                 saveable.Load();
-            
+
         }
 
         private static void Save()

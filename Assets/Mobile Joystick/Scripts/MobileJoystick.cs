@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MobileJoystick : MonoBehaviour
@@ -24,7 +22,7 @@ public class MobileJoystick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(canControl)
+        if (canControl)
             ControlJoystick();
     }
 
@@ -65,7 +63,7 @@ public class MobileJoystick : MonoBehaviour
         moveMagnitude = Mathf.Min(moveMagnitude, realWidth);
 
         move = direction.normalized * moveMagnitude;
-        
+
         Vector3 targetPosition = clickedPosition + move;
 
         joystickKnob.position = targetPosition;

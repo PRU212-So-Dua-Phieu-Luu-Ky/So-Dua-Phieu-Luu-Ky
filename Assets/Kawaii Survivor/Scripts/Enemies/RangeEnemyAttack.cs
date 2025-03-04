@@ -24,7 +24,7 @@ public class RangeEnemyAttack : MonoBehaviour
         attackDelay += 1f / attackFrequency;
         attackTimer = attackDelay;
 
-        bulletPool = new ObjectPool<EnemyBullet>(Create, ActionOnGet, ActionOnRelease, ActionOnDestroy, defaultCapacity:4);
+        bulletPool = new ObjectPool<EnemyBullet>(Create, ActionOnGet, ActionOnRelease, ActionOnDestroy, defaultCapacity: 4);
     }
 
     private void ActionOnDestroy(EnemyBullet bullet)

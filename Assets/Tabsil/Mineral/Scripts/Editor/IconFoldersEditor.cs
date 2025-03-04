@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SearchService;
-using System.IO;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -34,7 +30,7 @@ namespace Tabsil.Mineral
 
             // Nothing has been saved for that folder
             if (iconGuid == "" || iconGuid == "00000000000000000000000000000000")
-                return;            
+                return;
 
             Texture2D folderTex = MineralEditor.GetTextureFromGuid(iconGuid);
 
@@ -44,7 +40,7 @@ namespace Tabsil.Mineral
                 Debug.LogWarning("Mineral : null Texture");
                 return;
             }
-   
+
             MineralEditor.DrawFolder(rect, folderTex);
         }
 
@@ -75,7 +71,7 @@ namespace Tabsil.Mineral
 
         public static void ChooseCustomIcon()
         {
-            if(Selection.activeObject == null)
+            if (Selection.activeObject == null)
             {
                 Debug.LogWarning("Please select a folder");
                 return;

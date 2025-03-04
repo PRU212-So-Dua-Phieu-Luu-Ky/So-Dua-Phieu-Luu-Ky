@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -86,7 +84,7 @@ namespace Tabsil.Mineral
             }
 
             // We want to reset the folder icon
-            if(iconName == "")
+            if (iconName == "")
             {
                 ResetFolderIcon();
                 return;
@@ -98,10 +96,10 @@ namespace Tabsil.Mineral
             {
                 Debug.LogWarning("Mineral : invalid icon guid");
                 return;
-            }    
+            }
 
             // Multi Selection
-            foreach(string guid in Selection.assetGUIDs)
+            foreach (string guid in Selection.assetGUIDs)
             {
                 // Is that a folder ?
                 if (!MineralEditor.IsFolder(guid))
@@ -110,7 +108,7 @@ namespace Tabsil.Mineral
 
                 MineralEditor.SaveFolderIcon(guid, iconGuid);
             }
-        }        
+        }
 
         private static void StoreIconGuids()
         {
@@ -122,19 +120,19 @@ namespace Tabsil.Mineral
             // We should first look for the Tabsil folder
             string tabsilFolderPath = MineralEditor.FindFolderByName("Tabsil");
 
-            if(tabsilFolderPath == null || tabsilFolderPath == "")
+            if (tabsilFolderPath == null || tabsilFolderPath == "")
             {
                 Debug.LogError("Mineral : No Tabsil folder found...");
                 return;
             }
 
-            iconsPath = tabsilFolderPath + "/" + Constants.localColoredIconsPath; 
+            iconsPath = tabsilFolderPath + "/" + Constants.localColoredIconsPath;
 
             string[] iconsfolder = new string[] { iconsPath };
             string[] assetsGuids = AssetDatabase.FindAssets("t: Texture2D ", iconsfolder);
 
             foreach (string guid in assetsGuids)
-                iconGuids.Add(guid);            
+                iconGuids.Add(guid);
         }
 
         private static string GetIconGuidFromName(string iconName)
@@ -145,7 +143,7 @@ namespace Tabsil.Mineral
                 Texture2D iconTex = AssetDatabase.LoadAssetAtPath<Texture2D>(iconPath);
 
                 if (iconTex.name == iconName)
-                    return iconGuids[i];                
+                    return iconGuids[i];
             }
 
             return "";

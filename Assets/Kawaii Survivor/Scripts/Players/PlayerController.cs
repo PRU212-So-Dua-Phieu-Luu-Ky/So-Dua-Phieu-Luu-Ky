@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour, IGameStateListener, IPlayerStatDe
 
     private void OnDestroy()
     {
+        if (inputActions == null) return;
         inputActions.Disable();
         inputActions.Dispose();
     }

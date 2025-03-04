@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public static class VectorUtilities 
+public static class VectorUtilities
 {
     public static Vector3 GetCenter(Vector3 v0, Vector3 v1)
     {
