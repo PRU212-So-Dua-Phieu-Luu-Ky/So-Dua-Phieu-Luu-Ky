@@ -42,7 +42,7 @@ namespace Assets.Kawaii_Survivor.Scripts.Managers
 
             // Resize the text of stat'scontainers
             // Since we are resizing the UI element, we have to wait a bit 
-            LeanTween.delayedCall(Time.deltaTime * 2, () => ResizeTexts(statContainers));
+            //LeanTween.delayedCall(Time.deltaTime * 2, () => ResizeTexts(statContainers));
         }
 
         // Ensure the text are
