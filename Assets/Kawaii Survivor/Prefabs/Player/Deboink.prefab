@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8000001, y: 0.8000001, z: 0.8}
+  m_LocalScale: {x: 0.62, y: 0.62, z: 0.62}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2971662084530710120}
@@ -252,7 +252,6 @@ MonoBehaviour:
     m_Bits: 64
   damage: 10
   attackDelay: 0.3
-  <Level>k__BackingField: 0
   hitDetectionTransform: {fileID: 2971662084530710120}
   hitDetectionRadius: 0.42
   hitCollider: {fileID: 4973897846741704406}
