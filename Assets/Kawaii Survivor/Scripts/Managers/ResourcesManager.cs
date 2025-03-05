@@ -9,6 +9,7 @@ namespace Assets.Kawaii_Survivor.Scripts.Managers
         // ==============================
 
         const string statIconsDataPath = "Data/StatIconDataSO";
+        const string weaponDatasPath = "Data/Weapons";
         const string objectDatasPath = "Data/Objects/";
         private static StatIcon[] statIcons;
 
@@ -48,5 +49,27 @@ namespace Assets.Kawaii_Survivor.Scripts.Managers
             Debug.LogError("No icon found for stat : " + stat);
             return null;
         }        
+
+        public static ObjectDataSO GetRandomObject()
+        {
+            return Objects[Random.Range(0, Objects.Length)];
+        }
+
+        private static WeaponDataSO[] weaponDatas;
+        public static WeaponDataSO[] Weapons 
+        {
+            get
+            {
+                if (weaponDatas == null)
+                    return Resources.LoadAll<WeaponDataSO>(weaponDatasPath);
+                return weaponDatas;
+            }
+            private set { }
+        }
+
+        public static WeaponDataSO GetRandomWeapon()
+        {
+            return Weapons[Random.Range(0, Weapons.Length)];
+        }
     }
 }

@@ -43,7 +43,7 @@ public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
 
                 // dont add twice in the game
                 if (selectedWeapon == null) return;
-                playerWeapons.AddWeapon(selectedWeapon, initialWeaponLevel);
+                playerWeapons.TryAddWeapon(selectedWeapon, initialWeaponLevel);
                 selectedWeapon = null;
                 initialWeaponLevel = 0;
 

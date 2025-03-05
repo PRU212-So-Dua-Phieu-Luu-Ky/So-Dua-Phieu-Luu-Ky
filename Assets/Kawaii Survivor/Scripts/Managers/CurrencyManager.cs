@@ -16,6 +16,9 @@ namespace Assets.Kawaii_Survivor.Scripts.Managers
         public static CurrencyManager instance;
         [field: SerializeField] public int Currency { get; private set; }
 
+        [Header("Actions")]
+        public static Action onUpdated;
+
         private void Awake()
         {
             if (instance == null)
@@ -26,13 +29,26 @@ namespace Assets.Kawaii_Survivor.Scripts.Managers
             }
         }
 
+        private void Start()
+        {
+            UpdateTexts();
+        }
+
         // ==============================
         // === Methods
         // ==============================
 
+        [NaughtyAttributes.Button]
+        public void Add500Currency()
+        {
+            AddCurrency(500);
+        }
         public void AddCurrency(int amount)
         {
             Currency += amount;
+            UpdateTexts();
+
+            onUpdated?.Invoke();
         }
 
         private void UpdateTexts()
@@ -43,6 +59,16 @@ namespace Assets.Kawaii_Survivor.Scripts.Managers
             {
                 text.UpdateText(Currency.ToString());
             }
+        }
+
+        public bool HasEnoughCurrency(int rerollPrice)
+        {
+            return Currency >= rerollPrice;
+        }
+
+        public void UseCurrency(int rerollPrice)
+        {
+            AddCurrency(-rerollPrice);
         }
     }
 }

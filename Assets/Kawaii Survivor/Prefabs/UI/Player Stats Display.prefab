@@ -638,6 +638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7934bccf59836b941a57ad22c50031ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStatContainersParent: {fileID: 0}
 --- !u!1 &7380077913558330062
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,6 +864,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2056798775103031711, guid: 919b3fa8f055ed14bae6bcc034bbc3f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056798775103031711, guid: 919b3fa8f055ed14bae6bcc034bbc3f2, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -896,6 +901,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5653447904447137921, guid: 919b3fa8f055ed14bae6bcc034bbc3f2, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653447904447137921, guid: 919b3fa8f055ed14bae6bcc034bbc3f2, type: 3}
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5653447904447137921, guid: 919b3fa8f055ed14bae6bcc034bbc3f2, type: 3}
@@ -1056,6 +1065,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709151245517945953, guid: 919b3fa8f055ed14bae6bcc034bbc3f2, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709151245517945953, guid: 919b3fa8f055ed14bae6bcc034bbc3f2, type: 3}
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8709151245517945953, guid: 919b3fa8f055ed14bae6bcc034bbc3f2, type: 3}
