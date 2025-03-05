@@ -1,8 +1,11 @@
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BGMScript : MonoBehaviour
 {
-    private static BGMScript instance;
+    public static BGMScript instance;
+    [SerializeField] private string[] gameScenes;
     
     private void Awake()
     {
@@ -14,5 +17,18 @@ public class BGMScript : MonoBehaviour
         
         instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Update()
+    {
+        StopMusic();
+    }
+
+    public void StopMusic()
+    {
+        if (gameScenes.Contains(SceneManager.GetActiveScene().name))
+        {
+            Destroy(gameObject);
+        }
     }
 }
