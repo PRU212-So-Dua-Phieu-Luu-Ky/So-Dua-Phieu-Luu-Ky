@@ -5019,6 +5019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7647082344090565963}
   - component: {fileID: 2048487652836159838}
+  - component: {fileID: 747936311097312809}
   m_Layer: 6
   m_Name: EnemyRenderer
   m_TagString: Untagged
@@ -5035,9 +5036,9 @@ Transform:
   m_GameObject: {fileID: 5903728443690109858}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0.392, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8937987366609859733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5085,7 +5086,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: bfc4e329538438b42ae6d67d1b6c0bbb, type: 3}
+  m_Sprite: {fileID: 7043984996573275655, guid: bc5d01ecdd08a054786c75ba4bb36656, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5096,6 +5097,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!95 &747936311097312809
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903728443690109858}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 439471b1b68e3d9469163a49845cca96, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6241085164980407499
 GameObject:
   m_ObjectHideFlags: 0
@@ -5182,8 +5205,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.014801502, y: 0.32809925}
-  m_Radius: 0.31004763
+  m_Offset: {x: -0.0015443563, y: 0.34814954}
+  m_Radius: 0.34644377
 --- !u!114 &4235053650063005206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5218,4 +5241,4 @@ MonoBehaviour:
   shootingPoint: {fileID: 4837310782910106600}
   bulletPrefab: {fileID: 8837760136213849241, guid: fcf981c48c62d194893aea9d7a4ac8f2, type: 3}
   damage: 5
-  attackFrequency: 1
+  attackFrequency: 2
