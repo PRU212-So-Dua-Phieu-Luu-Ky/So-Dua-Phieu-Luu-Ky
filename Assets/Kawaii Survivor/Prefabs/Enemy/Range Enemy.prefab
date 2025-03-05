@@ -5241,4 +5241,4 @@ MonoBehaviour:
   shootingPoint: {fileID: 4837310782910106600}
   bulletPrefab: {fileID: 8837760136213849241, guid: fcf981c48c62d194893aea9d7a4ac8f2, type: 3}
   damage: 5
-  attackFrequency: 2
+  attackFrequency: 1
