@@ -49,7 +49,7 @@ public class WeaponSelectionContainer : MonoBehaviour
 
         //Configure image. color based on level
         Color imageColor = ColorHolder.GetColor(level);
-        nameText.color = Color.black;
+        nameText.color = Color.white;
         foreach (Image image in levelDependentImages)
         {
             image.color = imageColor;
