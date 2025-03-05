@@ -34,5 +34,15 @@ namespace Assets.Kawaii_Survivor.Scripts.Managers
         {
             Currency += amount;
         }
+
+        private void UpdateTexts()
+        {
+            CurrencyText[] currencyTexts = FindObjectsByType<CurrencyText>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+
+            foreach(var text in currencyTexts)
+            {
+                text.UpdateText(Currency.ToString());
+            }
+        }
     }
 }
