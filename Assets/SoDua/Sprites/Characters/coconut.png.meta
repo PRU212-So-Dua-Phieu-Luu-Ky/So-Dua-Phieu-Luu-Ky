@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: c7482405b1f7a68428bf180b403f375e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4097144792221710411
+    second: coconut_0
+  - first:
+      213: 3292874231492293847
+    second: coconut_1
+  - first:
+      213: 6780526761428888422
+    second: coconut_2
+  - first:
+      213: -2964201720110830493
+    second: coconut_3
+  - first:
+      213: -5618007106418113758
+    second: coconut_4
+  - first:
+      213: 1944533927770216684
+    second: coconut_5
+  - first:
+      213: -2399686251063776967
+    second: coconut_6
+  - first:
+      213: -2541287526939954532
+    second: coconut_7
+  - first:
+      213: 3447209404453872132
+    second: coconut_8
+  - first:
+      213: -7945416077223121907
+    second: coconut_9
+  - first:
+      213: 108027917002579143
+    second: coconut_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: coconut_0
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 206
+        width: 96
+        height: 142
+      alignment: 9
+      pivot: {x: 0.49633384, y: 0.13565288}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ddd9c47aba02c441b34340498824b97
+      internalID: -1472864026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coconut_1
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 206
+        width: 97
+        height: 142
+      alignment: 9
+      pivot: {x: 0.5235846, y: 0.14432783}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68aa14a7c1569c54b9611170a4b435c9
+      internalID: 39835063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coconut_2
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 206
+        width: 97
+        height: 142
+      alignment: 9
+      pivot: {x: 0.49780965, y: 0.1393366}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ac735ad904c4e4887bb795e7dd2189
+      internalID: 1699485873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coconut_3
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 206
+        width: 97
+        height: 142
+      alignment: 9
+      pivot: {x: 0.4890464, y: 0.14532277}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48d640a8b1ad30140994873fdc2b8487
+      internalID: -648944358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coconut_4
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 206
+        width: 97
+        height: 142
+      alignment: 9
+      pivot: {x: 0.49123737, y: 0.13484707}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 103819403eca16f4ba7c8adad856197a
+      internalID: 1520354836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coconut_5
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 30
+        width: 96
+        height: 141
+      alignment: 9
+      pivot: {x: 0.48460045, y: 0.12429269}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c99ba9ceb81644c99226eacd89763f
+      internalID: 512294669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coconut_6
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 30
+        width: 97
+        height: 141
+      alignment: 9
+      pivot: {x: 0.51384383, y: 0.12285963}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32032e290a160a94d980506d9c4ade06
+      internalID: 226251431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coconut_7
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 31
+        width: 97
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5055375, y: 0.118247494}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1d66fec755bea74d87d29d072409f67
+      internalID: -1037568517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coconut_8
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 30
+        width: 96
+        height: 141
+      alignment: 9
+      pivot: {x: 0.50304985, y: 0.12628828}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6467b882e32d6dd4d84d44c74b1a5183
+      internalID: 726920301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coconut_9
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 30
+        width: 97
+        height: 141
+      alignment: 9
+      pivot: {x: 0.51810795, y: 0.122135945}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7da74d7a9daa9746aa483a841143d84
+      internalID: -1507545790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coconut_10
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 658
+        height: 367
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61b72ec887d7ee947b4aaaa39c905151
+      internalID: 847847345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d3fe8b248e8936a46bbef01e704196b6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      coconut_0: -1472864026
+      coconut_1: 39835063
+      coconut_10: 847847345
+      coconut_2: 1699485873
+      coconut_3: -648944358
+      coconut_4: 1520354836
+      coconut_5: 512294669
+      coconut_6: 226251431
+      coconut_7: -1037568517
+      coconut_8: 726920301
+      coconut_9: -1507545790
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
