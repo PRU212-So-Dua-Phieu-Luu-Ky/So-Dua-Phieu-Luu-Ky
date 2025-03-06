@@ -34,7 +34,7 @@ public class GameManagerController : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = targetFrameRate;
-        SetGameState(GameState.MENU);
+        SetGameState(GameState.WEAPON_SELECTION);
     }
 
     private void Update()
