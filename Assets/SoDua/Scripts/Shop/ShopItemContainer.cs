@@ -57,7 +57,8 @@ public class ShopItemContainer : MonoBehaviour
         if (WeaponData != null)
         {
             itemPrice = WeaponStatsCalculator.GetPurchasePrice(WeaponData, weaponLevel);
-        } else
+        }
+        else
         {
             itemPrice = ObjectData.Price;
         }
@@ -102,7 +103,7 @@ public class ShopItemContainer : MonoBehaviour
         ObjectData = objectData;
         // Configure icon and name
         icon.sprite = objectData.Icon;
-        nameText.text = objectData.name;
+        nameText.text = objectData.Name;
         priceText.text = objectData.Price.ToString();
 
         //Configure image. color based on level

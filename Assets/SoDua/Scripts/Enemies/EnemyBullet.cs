@@ -31,8 +31,8 @@ public class EnemyBullet : MonoBehaviour
             LeanTween.cancel(gameObject);
             player.TakeDamage(damage);
             this.collider.enabled = false;
-
             rangeEnemyAttack.ReleaseBullet(this);
+
         }
     }
 
