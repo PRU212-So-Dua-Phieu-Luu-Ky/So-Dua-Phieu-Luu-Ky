@@ -395,8 +395,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: 0}
-  m_SizeDelta: {x: -58.0109, y: 0}
+  m_AnchoredPosition: {x: 1.2231, y: 0}
+  m_SizeDelta: {x: -35.5646, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3207306903692036613
 CanvasRenderer:
@@ -875,7 +875,7 @@ MonoBehaviour:
   nameText: {fileID: 3735704188937009845}
   priceText: {fileID: 4048435989167620497}
   purchaseButton: {fileID: 6317377552406256215}
-  statContainersParent: {fileID: 2661606660468043994}
+  statContainersParent: {fileID: 0}
   levelDependentImages:
   - {fileID: 3635282380025919767}
   lockImage: {fileID: 3177143593547813301}
@@ -1214,7 +1214,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: 8
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -1651,6 +1651,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5770392727645751538, guid: de466c180ed8b714ebf8b7f75d46b299, type: 3}
+      propertyPath: m_fontSize
+      value: 25.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6029153507084146803, guid: de466c180ed8b714ebf8b7f75d46b299, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1774,6 +1778,18 @@ PrefabInstance:
     - target: {fileID: 8013126888259901567, guid: de466c180ed8b714ebf8b7f75d46b299, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013126888259901567, guid: de466c180ed8b714ebf8b7f75d46b299, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5325644
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013126888259901567, guid: de466c180ed8b714ebf8b7f75d46b299, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8734513
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013126888259901567, guid: de466c180ed8b714ebf8b7f75d46b299, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8734513
       objectReference: {fileID: 0}
     - target: {fileID: 8013126888259901567, guid: de466c180ed8b714ebf8b7f75d46b299, type: 3}
       propertyPath: m_AnchoredPosition.x
