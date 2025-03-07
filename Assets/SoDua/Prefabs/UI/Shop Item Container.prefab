@@ -875,7 +875,7 @@ MonoBehaviour:
   nameText: {fileID: 3735704188937009845}
   priceText: {fileID: 4048435989167620497}
   purchaseButton: {fileID: 6317377552406256215}
-  statContainersParent: {fileID: 0}
+  statContainersParent: {fileID: 2661606660468043994}
   levelDependentImages:
   - {fileID: 3635282380025919767}
   lockImage: {fileID: 3177143593547813301}

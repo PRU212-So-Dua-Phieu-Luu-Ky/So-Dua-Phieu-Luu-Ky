@@ -35,13 +35,13 @@ public class ChestObjectContainer : MonoBehaviour
         recyclePriceText.text = objectData.RecyclePrice.ToString();
 
         //Configure image. color based on level
-        Color imageColor = ColorHolder.GetColor(objectData.Rarity);
-        nameText.color = imageColor;
+        //Color imageColor = ColorHolder.GetColor(objectData.Rarity);
+        //nameText.color = imageColor;
 
-        foreach (Image image in levelDependentImages)
-        {
-            image.color = imageColor;
-        }
+        //foreach (Image image in levelDependentImages)
+        //{
+        //    image.color = imageColor;
+        //}
 
         // Configure stats for Object item
         ConfigureStatContainers(objectData.BaseStats);

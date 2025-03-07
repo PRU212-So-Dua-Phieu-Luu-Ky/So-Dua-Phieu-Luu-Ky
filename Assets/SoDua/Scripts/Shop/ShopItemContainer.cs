@@ -84,12 +84,12 @@ public class ShopItemContainer : MonoBehaviour
         priceText.text = weaponPrice.ToString();
 
         //Configure image. color based on level
-        Color imageColor = ColorHolder.GetColor(level);
-        nameText.color = Color.white;
-        foreach (Image image in levelDependentImages)
-        {
-            image.color = imageColor;
-        }
+        //Color imageColor = ColorHolder.GetColor(level);
+        //nameText.color = Color.white;
+        //foreach (Image image in levelDependentImages)
+        //{
+        //    image.color = imageColor;
+        //}
 
         Dictionary<Stat, float> calculatedStats = WeaponStatsCalculator.GetStats(weaponData, level);
         ConfigureStatContainers(calculatedStats);
@@ -107,12 +107,13 @@ public class ShopItemContainer : MonoBehaviour
         priceText.text = objectData.Price.ToString();
 
         //Configure image. color based on level
-        Color imageColor = ColorHolder.GetColor(objectData.Rarity);
-        nameText.color = Color.white;
-        foreach (Image image in levelDependentImages)
-        {
-            image.color = imageColor;
-        }
+
+        //Color imageColor = ColorHolder.GetColor(objectData.Rarity);
+        //nameText.color = Color.white;
+        //foreach (Image image in levelDependentImages)
+        //{
+        //    image.color = imageColor;
+        //}
 
         ConfigureStatContainers(objectData.BaseStats);
 

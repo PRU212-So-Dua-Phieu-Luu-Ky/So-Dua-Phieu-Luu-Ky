@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794298b3fc8a61c4e817d98fd4775d12, type: 3}
   m_Name: Deboink Melee Data
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: "G\u1EADy g\u1ED7"
-  <Sprite>k__BackingField: {fileID: 5485319108022510092, guid: 15c981701acaf3f4b840cf2f1f7d3446, type: 3}
+  <Name>k__BackingField: "Ch\u1ED5i cau"
+  <Sprite>k__BackingField: {fileID: 7901622571200134146, guid: d49e2d955ad11a846bf09cdf8298a101, type: 3}
   <PurchasePrice>k__BackingField: 100
   <Prefab>k__BackingField: {fileID: 8928524574443077426, guid: 39a752dc13aa2204d9122aa66df131de, type: 3}
   attack: 10

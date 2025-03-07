@@ -32,7 +32,6 @@ public class RangeEnemy : Enemy
 
     private void TryAttack()
     {
-        Debug.Log("attacking player");
         attack.AutoAim();
     }
 }
