@@ -35347,6 +35347,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2095966053}
     m_Modifications:
+    - target: {fileID: 2409578599979623538, guid: 71175f2632f4860418deb851e4eeed3a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -58.1709
+      objectReference: {fileID: 0}
     - target: {fileID: 3369582840996814404, guid: 71175f2632f4860418deb851e4eeed3a, type: 3}
       propertyPath: m_Name
       value: '[SHOP]'
@@ -36679,6 +36683,10 @@ PrefabInstance:
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8381391645679418794, guid: c82caf3c77cb86644a0f14b31467dfa7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15.464355
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -37887,6 +37895,7 @@ Transform:
   - {fileID: 1281236682}
   - {fileID: 1433807173}
   - {fileID: 647066486}
+  - {fileID: 1125554025}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &763814561
@@ -42526,6 +42535,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1125554024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1125554025}
+  - component: {fileID: 1125554026}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1125554025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125554024}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 745759552}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &1125554026
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125554024}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1129877977
 GameObject:
   m_ObjectHideFlags: 0
@@ -47515,7 +47581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5709307302833381349, guid: a7f7f5fd5142ef747815fcd38b44c478, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00091552734
+      value: -0.0009765625
       objectReference: {fileID: 0}
     - target: {fileID: 5709307302833381349, guid: a7f7f5fd5142ef747815fcd38b44c478, type: 3}
       propertyPath: m_AnchoredPosition.y
