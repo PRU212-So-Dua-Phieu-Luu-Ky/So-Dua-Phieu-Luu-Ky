@@ -48,7 +48,7 @@ namespace Assets.Kawaii_Survivor.Scripts.Managers
         // Ensure the text are
         private void ResizeTexts(List<StatContainer> statContainers)
         {
-            float minFontSize = 5000;
+            float minFontSize = 500;
             for (int i = 0; i < statContainers.Count; i++)
             {
                 StatContainer statContainer = statContainers[i];

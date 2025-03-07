@@ -1,6 +1,8 @@
 using Assets.Kawaii_Survivor.Scripts.Managers;
 using NaughtyAttributes;
 using System;
+using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -22,6 +24,8 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
     [SerializeField] private Transform chestContainerParent;
     //private ChestObjectContainer containerInstance;
     private int chestCollected;
+
+    private HashSet<Stat> existingStats = new HashSet<Stat>();
 
     // ==============================
     // === Lifecycles
@@ -115,7 +119,6 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
 
     private void TakeButtonCallback(ObjectDataSO objectToTake)
     {
-        Debug.Log("CLCDCWD");
         playerObjects.AddObject(objectToTake);  // Add stats of chest intothe current player
         TryOpenChest();                         // Open the next chest
     }
@@ -133,12 +136,29 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
     [Button]
     private void ConfigureUpgradeContainers()
     {
+        var enumLength = Enum.GetValues(typeof(Stat)).Length;
+        if (existingStats.Count == enumLength)
+        {
+            existingStats.Clear();
+        }
+
         upgradeContainersParent.SetActive(true);
 
         for (int i = 0; i < upgradeContainers.Length; i++)
         {
-            int randomIndex = Random.Range(0, Enum.GetValues(typeof(Stat)).Length);  // get random index
-            var stat = (Stat)Enum.GetValues(typeof(Stat)).GetValue(randomIndex);     // get random stats on list
+            int randomIndex;
+            Stat stat;
+            bool wasAdded;
+            do
+            {
+                // Generate a random stat
+                randomIndex = Random.Range(0, enumLength);
+                stat = (Stat)Enum.GetValues(typeof(Stat)).GetValue(randomIndex);
+
+                // Try to add it to the collection
+                wasAdded = existingStats.Add(stat);
+            }
+            while (!wasAdded);
 
             Sprite upgradeSprite = ResourcesManager.GetStatIcon(stat);
 

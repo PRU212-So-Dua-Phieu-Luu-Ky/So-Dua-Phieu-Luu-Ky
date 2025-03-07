@@ -9,7 +9,6 @@ public class UIManager : MonoBehaviour, IGameStateListener
 
     [Header(" Panels ")]
     [SerializeField] private GameObject menuPanel;
-
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private GameObject waveTransitionPanel;
     [SerializeField] private GameObject shopPanel;

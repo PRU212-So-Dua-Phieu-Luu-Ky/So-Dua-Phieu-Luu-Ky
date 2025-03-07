@@ -142,15 +142,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Deboink Melee Data
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 96dbcb2895353a24da88e6ddd7b0b8f2, type: 2}
-  m_sharedMaterial: {fileID: -1051536056453776857, guid: 96dbcb2895353a24da88e6ddd7b0b8f2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 72cae99c655e17c43bd842a3cf5e3f22, type: 2}
+  m_sharedMaterial: {fileID: 4559007458368746993, guid: 72cae99c655e17c43bd842a3cf5e3f22, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278208644
+  m_fontColor: {r: 0.5176471, g: 0.28235295, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -237,7 +237,7 @@ RectTransform:
   m_GameObject: {fileID: 3376027255824131903}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.68, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5968296913661445654}
@@ -302,8 +302,8 @@ RectTransform:
   m_GameObject: {fileID: 3506736702849561382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.51, y: 0.51, z: 0.51}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3865962958495120125}
   m_Father: {fileID: 3091610204488864523}
@@ -359,7 +359,7 @@ RectTransform:
   m_GameObject: {fileID: 3684917993167951380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.63, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 429129654659296672}
@@ -459,15 +459,15 @@ MonoBehaviour:
 
     +5%'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 96dbcb2895353a24da88e6ddd7b0b8f2, type: 2}
-  m_sharedMaterial: {fileID: -1051536056453776857, guid: 96dbcb2895353a24da88e6ddd7b0b8f2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 72cae99c655e17c43bd842a3cf5e3f22, type: 2}
+  m_sharedMaterial: {fileID: 4559007458368746993, guid: 72cae99c655e17c43bd842a3cf5e3f22, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278208644
+  m_fontColor: {r: 0.5176471, g: 0.28235295, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -540,7 +540,6 @@ GameObject:
   - component: {fileID: 8593102518171848268}
   - component: {fileID: 3241750549441240461}
   - component: {fileID: 884902788888536591}
-  - component: {fileID: 3231969769367162946}
   - component: {fileID: 1830880083584585408}
   m_Layer: 5
   m_Name: Upgrade Container Button
@@ -558,7 +557,7 @@ RectTransform:
   m_GameObject: {fileID: 3931641888581793247}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3320144, y: 1.1125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3091610204488864523}
@@ -590,15 +589,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9150943, g: 0.7595139, b: 0.14244394, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 89881996876820253, guid: 54d7f48ae17a46d419453569754766f9, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -4564723269634655129, guid: f207b3c904fc8bb4f8b69630b2b28d13, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -651,24 +650,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3231969769367162946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3931641888581793247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0821b12ab882f944abdca54fb497f34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponIcon: {fileID: 703324221313518320}
-  nameText: {fileID: 6550631077077176850}
-  <Button>k__BackingField: {fileID: 884902788888536591}
-  statContainersParent: {fileID: 0}
-  levelDependentImages:
-  - {fileID: 3241750549441240461}
 --- !u!114 &1830880083584585408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,7 +692,7 @@ RectTransform:
   m_GameObject: {fileID: 4956289341922478681}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.66, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9118425792407074228}

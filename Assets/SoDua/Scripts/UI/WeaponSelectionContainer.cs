@@ -48,12 +48,13 @@ public class WeaponSelectionContainer : MonoBehaviour
         nameText.text = weaponData.Name + $"(Level {level + 1})";
 
         //Configure image. color based on level
-        Color imageColor = ColorHolder.GetColor(level);
-        nameText.color = Color.white;
-        foreach (Image image in levelDependentImages)
-        {
-            image.color = imageColor;
-        }
+
+        //Color imageColor = ColorHolder.GetColor(level);
+        //nameText.color = Color.white;
+        //foreach (Image image in levelDependentImages)
+        //{
+        //    image.color = imageColor;
+        //}
 
         Dictionary<Stat, float> calculatedStats = WeaponStatsCalculator.GetStats(weaponData, level);
         ConfigureStatContainers(calculatedStats);

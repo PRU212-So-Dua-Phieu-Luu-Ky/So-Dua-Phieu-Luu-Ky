@@ -207,7 +207,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -162, y: 241.81364}
+  m_AnchoredPosition: {x: -162, y: 241.81334}
   m_SizeDelta: {x: 324.27, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &5132857255812081298
@@ -400,15 +400,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Deboink Melee Data
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 96dbcb2895353a24da88e6ddd7b0b8f2, type: 2}
-  m_sharedMaterial: {fileID: -1051536056453776857, guid: 96dbcb2895353a24da88e6ddd7b0b8f2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 72cae99c655e17c43bd842a3cf5e3f22, type: 2}
+  m_sharedMaterial: {fileID: 4559007458368746993, guid: 72cae99c655e17c43bd842a3cf5e3f22, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278208132
+  m_fontColor: {r: 0.5176471, g: 0.27450982, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -497,7 +497,7 @@ RectTransform:
   m_GameObject: {fileID: 3929500569428274056}
   m_LocalRotation: {x: 0, y: 0, z: 0.2588191, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.64, y: 0.64, z: 0.64}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4817945152123806199}
@@ -594,7 +594,7 @@ RectTransform:
   m_GameObject: {fileID: 6703973733925234277}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.81, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7233310992158570517}
@@ -879,7 +879,7 @@ RectTransform:
   m_GameObject: {fileID: 8720983348923836863}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_LocalScale: {x: 1.0828125, y: 1.0828125, z: 1.0828125}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1466530739950399213}
@@ -918,7 +918,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5993112012373322873, guid: 3b04fa7dae142e34f84769716dd466e6, type: 3}
+  m_Sprite: {fileID: -4564723269634655129, guid: f207b3c904fc8bb4f8b69630b2b28d13, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

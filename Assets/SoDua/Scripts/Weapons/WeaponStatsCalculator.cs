@@ -12,7 +12,7 @@ public class WeaponStatsCalculator : MonoBehaviour
 
         foreach (KeyValuePair<Stat, float> kvp in weaponData.BaseStats)
         {
-            if (weaponData.Prefab.GetType() != typeof(RangeEnemy) && kvp.Key == Stat.Range)
+            if (weaponData.Prefab.GetType() != typeof(RangeWeapon) && kvp.Key == Stat.Range)
             {
                 calculatedStats.Add(kvp.Key, kvp.Value);
             }
