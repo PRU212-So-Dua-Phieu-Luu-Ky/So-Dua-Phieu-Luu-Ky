@@ -18,9 +18,9 @@ public enum Stat
     Attack,
     [Description("Tốc đánh")]
     AttackSpeed,
-    [Description("Tỉ lệ chí mạng")]
+    [Description("Chí mạng (%)")]
     CriticalChance,
-    [Description("Sát thương chí mạng")]
+    [Description("ST chí mạng")]
     CriticalPercent,
     [Description("Tốc chạy")]
     MoveSpeed,

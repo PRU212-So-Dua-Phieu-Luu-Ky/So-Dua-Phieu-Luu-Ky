@@ -46,6 +46,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        // if target is already found 
         if (target != null) return;
 
         if (IsInLayerMask(collider.gameObject.layer, enemyMask))
@@ -55,7 +56,7 @@ public class Bullet : MonoBehaviour
             Attack(target);
             //this.collider.enabled = false;
             Release();
-        }
+        } 
     }
 
     private void Attack(Enemy enemy)

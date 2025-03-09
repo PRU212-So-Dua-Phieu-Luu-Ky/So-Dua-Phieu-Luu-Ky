@@ -23,7 +23,7 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
     [SerializeField] private ChestObjectContainer chestContainerPrefab;
     [SerializeField] private Transform chestContainerParent;
     //private ChestObjectContainer containerInstance;
-    private int chestCollected;
+    public static Action onChestDecrease;
 
     private HashSet<Stat> existingStats = new HashSet<Stat>();
 
@@ -41,13 +41,6 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
         {
             Destroy(gameObject);
         }
-
-        Chest.onCollected += ChestCollectedCallback;
-    }
-
-    private void OnDestroy()
-    {
-        Chest.onCollected -= ChestCollectedCallback;
     }
 
     void Start()
@@ -64,14 +57,6 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
     // ==============================
     // === Methods
     // ==============================
-
-    /// <summary>
-    /// Ch
-    /// </summary>
-    private void ChestCollectedCallback()
-    {
-        chestCollected++;
-    }
 
     public void GameStateChangedCallBack(GameState gameState)
     {
@@ -90,7 +75,7 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
         // clear the open chest
         chestContainerParent.Clear();
 
-        if (chestCollected > 0)
+        if (CurrencyManager.instance.ChestCount > 0)
         {
             ShowObject();
         }
@@ -103,7 +88,7 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
     private void ShowObject()
     {
         // Count how many chest do we get
-        chestCollected--;
+        onChestDecrease?.Invoke();
 
         upgradeContainersParent.SetActive(false);
 
@@ -177,7 +162,7 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
 
     public bool HasCollectedChest()
     {
-        return chestCollected > 0;
+        return CurrencyManager.instance.ChestCount > 0;
     }
 
     /// <summary>

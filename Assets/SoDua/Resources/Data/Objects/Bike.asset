@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: "Xe \u0111\u1EA1p"
   <Icon>k__BackingField: {fileID: -460769226430981451, guid: e2b501b9b8126574ba147cee4db1cf55, type: 3}
-  <Price>k__BackingField: 250
-  <RecyclePrice>k__BackingField: 50
-  <Rarity>k__BackingField: 0
+  <Price>k__BackingField: 20
+  <RecyclePrice>k__BackingField: 5
+  <Rarity>k__BackingField: 3
   statDatas:
   - stat: 4
     value: 5
