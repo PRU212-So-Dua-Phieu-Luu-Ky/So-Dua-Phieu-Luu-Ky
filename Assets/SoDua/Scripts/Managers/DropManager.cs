@@ -75,9 +75,15 @@ public class DropManager : MonoBehaviour
     {
         bool shouldSpawnCash = UnityEngine.Random.Range(0, 101) <= cashDropChance;
 
-        var droppable = shouldSpawnCash ? cashPool.Get().gameObject : candyPool.Get().gameObject;
+        GameObject cashDrop;
+        if (shouldSpawnCash)
+        {
+            cashDrop = cashPool.Get().gameObject;
+            cashDrop.transform.position = enemyPosition;
+        }
+        var candyDrop = candyPool.Get().gameObject;
 
-        droppable.transform.position = enemyPosition;
+        candyDrop.transform.position = enemyPosition;
 
         TryDropChest(enemyPosition);
     }

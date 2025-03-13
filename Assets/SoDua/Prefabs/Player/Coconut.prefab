@@ -232,8 +232,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.014316797, y: 0.33031666}
-  m_Radius: 0.7093307
+  m_Offset: {x: -0.014316797, y: -0.16937791}
+  m_Radius: 0.51197255
 --- !u!114 &3514323619063655734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobileJoystick: {fileID: 0}
+  playerSprite: {fileID: 0}
   baseMoveSpeed: 200
   minX: -30.4
   maxX: 21
@@ -387,7 +388,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.052323192, y: 0.28559622}
+  m_Offset: {x: -0.052323192, y: -0.34846985}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -397,7 +398,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.74113756, y: 0.93133825}
+  m_Size: {x: 0.74113756, y: 0.7381792}
   m_EdgeRadius: 0
 --- !u!114 &962705224794823285
 MonoBehaviour:
