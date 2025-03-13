@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -87,7 +88,7 @@ public class PlayerStatsManager : MonoBehaviour
     private void UpdatePlayerStats()
     {
         IEnumerable<IPlayerStatDependency> playerStatDependencies
-            = FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include ,FindObjectsSortMode.None).OfType<IPlayerStatDependency>();
+            = FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None).OfType<IPlayerStatDependency>();
 
         foreach (IPlayerStatDependency dependency in playerStatDependencies)
         {
@@ -95,5 +96,14 @@ public class PlayerStatsManager : MonoBehaviour
         }
     }
 
+    public void RemoveObjectStats(Dictionary<Stat, float> objectStats)
+    {
+        foreach (KeyValuePair<Stat, float> kvp in objectStats)
+        {
+            objectAddends[kvp.Key] -= kvp.Value;
+        }
+
+        UpdatePlayerStats();
+    }
 }
 

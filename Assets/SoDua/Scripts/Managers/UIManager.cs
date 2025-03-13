@@ -7,6 +7,8 @@ public class UIManager : MonoBehaviour, IGameStateListener
     // === Fields & Props
     // ==============================
 
+    public static UIManager Instance { get; private set; }
+
     [Header(" Panels ")]
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject gamePanel;
@@ -15,6 +17,8 @@ public class UIManager : MonoBehaviour, IGameStateListener
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject stageCompletePanel;
     [SerializeField] private GameObject weaponSelectionPanel;
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject tutorialPanel;
     private List<GameObject> panels = new List<GameObject>();
 
     private void Awake()
@@ -27,16 +31,25 @@ public class UIManager : MonoBehaviour, IGameStateListener
             shopPanel,
             stageCompletePanel,
             gameOverPanel,
-            weaponSelectionPanel
+            weaponSelectionPanel,
+            tutorialPanel
         });
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-
     // ==============================
     // === Constructors
     // ==============================
 
     private void Start()
     {
+        HidePausePanel();
     }
 
     // Update is called once per frame
@@ -79,6 +92,9 @@ public class UIManager : MonoBehaviour, IGameStateListener
             case GameState.SHOP:
                 ShowPanel(shopPanel);
                 break;
+            case GameState.TUTORIAL:
+                ShowPanel(tutorialPanel);
+                break;
         }
     }
 
@@ -93,4 +109,15 @@ public class UIManager : MonoBehaviour, IGameStateListener
             gameObject.SetActive(gameObject == panel);
         }
     }
+
+    public void ShowPausePanel()
+    {
+        pausePanel.SetActive(true);
+    }
+
+    public void HidePausePanel()
+    {
+        pausePanel.SetActive(false);
+    }
+
 }

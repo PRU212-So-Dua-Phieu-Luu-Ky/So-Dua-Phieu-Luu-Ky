@@ -45,7 +45,7 @@ public class WeaponSelectionContainer : MonoBehaviour
     {
         // Configure icon and name
         weaponIcon.sprite = weaponData.Sprite;
-        nameText.text = weaponData.Name + $"(Level {level + 1})";
+        nameText.text = weaponData.Name + $"(Lv. {level + 1})";
 
         //Configure image. color based on level
 

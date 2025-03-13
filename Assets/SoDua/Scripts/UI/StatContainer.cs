@@ -26,9 +26,10 @@ public class StatContainer : MonoBehaviour
         if (useColor)
         {
             ColorizeStatValueText(statValue);
-        } else
+        }
+        else
         {
-            statValueText.color = Color.white;
+            // statValueText.color = Color.white;
             statValueText.text = statValue.ToString("F2");
         }
     }
@@ -41,11 +42,12 @@ public class StatContainer : MonoBehaviour
 
         float absStartValue = Mathf.Abs(statValue);
 
-        Color statValueTextColor = Color.white;
+        Color statValueTextColor = statValueText.color;
         if (sign > 0)
         {
             statValueTextColor = Color.green;
-        } else if (sign < 0)
+        }
+        else if (sign < 0)
         {
             statValueTextColor = Color.red;
         }

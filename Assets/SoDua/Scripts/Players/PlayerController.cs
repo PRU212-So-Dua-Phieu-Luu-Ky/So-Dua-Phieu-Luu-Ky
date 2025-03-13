@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour, IGameStateListener, IPlayerStatDe
 
     private Rigidbody2D rigidbody2D;
 
+    [SerializeField] private SpriteRenderer playerSprite;
+
     [Header("Settings")]
     private float moveSpeed = 1f;
     [SerializeField] private float baseMoveSpeed = 1f;
@@ -30,6 +32,16 @@ public class PlayerController : MonoBehaviour, IGameStateListener, IPlayerStatDe
         inputActions = new PlayerInputSystem();
         inputActions.Player.Enable();
         rigidbody2D = GetComponent<Rigidbody2D>();
+
+        // If playerSprite is not set in the inspector, try to find it
+        if (playerSprite == null)
+        {
+            playerSprite = GetComponentInChildren<SpriteRenderer>();
+            if (playerSprite == null)
+            {
+                Debug.LogWarning("Player sprite renderer not found! The flip functionality will not work.");
+            }
+        }
     }
 
     public Vector2 GetMovementVectorNormalized()
@@ -90,6 +102,16 @@ public class PlayerController : MonoBehaviour, IGameStateListener, IPlayerStatDe
             }
 
             rigidbody2D.linearVelocity = newVelocity;
+
+            // Flip the sprite based on movement direction
+            if (playerSprite != null)
+            {
+                // Only flip vertically if moving up/down
+                if (moveDirection.x != 0)
+                {
+                    playerSprite.flipX = moveDirection.x > 0;
+                }
+            }
         }
         else
         {

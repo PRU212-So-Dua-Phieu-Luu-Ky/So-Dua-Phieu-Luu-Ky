@@ -15,6 +15,8 @@ public class GameManagerController : MonoBehaviour
     public static GameManagerController Instance { get; private set; }
     [SerializeField] private int targetFrameRate = 60;
 
+    private GameState previousState;
+
     // ==============================
     // === Lifecycle
     // ==============================
@@ -34,11 +36,7 @@ public class GameManagerController : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = targetFrameRate;
-        SetGameState(GameState.WEAPON_SELECTION);
-    }
-
-    private void Update()
-    {
+        SetGameState(GameState.TUTORIAL);
     }
 
     // ==============================
@@ -66,6 +64,12 @@ public class GameManagerController : MonoBehaviour
     /// <param name="gameState"></param>
     public void SetGameState(GameState gameState)
     {
+        // Store the previous state if we're not pausing or unpausing
+        if (gameState != GameState.PAUSE)
+        {
+            previousState = gameState;
+        }
+
         // Finding all class implementing the interface IGameStateListener
         IEnumerable<IGameStateListener> gameStateListeners = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IGameStateListener>();
 
@@ -73,6 +77,34 @@ public class GameManagerController : MonoBehaviour
         {
             gameStateListener.GameStateChangedCallBack(gameState);
         }
+    }
+
+
+    /// <summary>
+    /// Pause the game, showing pause UI and stopping time
+    /// </summary>
+    public void PauseGame()
+    {
+
+        Time.timeScale = 0f; // Stop time
+        SetGameState(GameState.PAUSE);
+
+        // Show pause panel through UIManager
+        UIManager.Instance.ShowPausePanel();
+    }
+
+    /// <summary>
+    /// Resume the game from a paused state
+    /// </summary>
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f; // Restore normal time flow
+
+        // Return to previous game state
+        SetGameState(previousState);
+
+        // Hide pause panel through UIManager
+        UIManager.Instance.HidePausePanel();
     }
 
     /// <summary>

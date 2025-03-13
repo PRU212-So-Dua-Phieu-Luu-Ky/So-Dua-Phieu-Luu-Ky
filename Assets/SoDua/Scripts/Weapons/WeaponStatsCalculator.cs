@@ -30,4 +30,10 @@ public class WeaponStatsCalculator : MonoBehaviour
         float multiplier = 1 + (float)level / 3; 
         return (int) (weaponData.PurchasePrice * multiplier);
     }
+
+    public static int GetRecyclePrice(WeaponDataSO weaponData, int level)
+    {
+        float multiplier = 1 + (float)level / 3; 
+        return (int) (weaponData.RecyclePrice * multiplier);
+    }
 }

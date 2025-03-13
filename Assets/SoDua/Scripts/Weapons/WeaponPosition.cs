@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class WeaponPosition : MonoBehaviour
@@ -25,5 +26,11 @@ public class WeaponPosition : MonoBehaviour
         Weapon.transform.localRotation = Quaternion.identity;
 
         Weapon.UpgradeTo(weaponLevel);
+    }
+
+    internal void RecycleWeapon()
+    {
+        Destroy(Weapon.gameObject);
+        Weapon = null;
     }
 }

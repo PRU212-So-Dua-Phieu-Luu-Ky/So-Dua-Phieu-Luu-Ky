@@ -15,9 +15,10 @@ MonoBehaviour:
   <Name>k__BackingField: "N\xE1"
   <Sprite>k__BackingField: {fileID: -2774315149639988039, guid: 6ba2bdba88302454a9f673c897dc6631, type: 3}
   <PurchasePrice>k__BackingField: 15
+  <RecyclePrice>k__BackingField: 4
   <Prefab>k__BackingField: {fileID: 586347120128571932, guid: aa213592bdb4ea94fb77e970fa94bca4, type: 3}
-  attack: 10
+  attack: 8
   attackSpeed: 2
-  criticalChance: 5
+  criticalChance: 10
   criticalPercent: 1.5
   range: 5

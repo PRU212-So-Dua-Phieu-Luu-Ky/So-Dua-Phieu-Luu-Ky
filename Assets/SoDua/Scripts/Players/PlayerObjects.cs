@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Assets.Kawaii_Survivor.Scripts.Managers;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerStatsManager))]
@@ -36,5 +37,17 @@ public class PlayerObjects : MonoBehaviour
     {
         Objects.Add(objectToTake);
         playerStatsManager.AddObject(objectToTake.BaseStats);
+    }
+
+    public void RecycleObject(ObjectDataSO objectToRecycle)
+    {
+        //Remove object from object list
+        Objects.Remove(objectToRecycle);
+
+        //Get $ back from manager 
+        CurrencyManager.instance.AddCurrency(objectToRecycle.RecyclePrice);
+
+        //Remove object stats from player stats manager
+        playerStatsManager.RemoveObjectStats(objectToRecycle.BaseStats);
     }
 }

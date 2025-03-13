@@ -1,8 +1,6 @@
 using Assets.Kawaii_Survivor.Scripts.Managers;
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using System.Resources;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,6 +21,9 @@ public class ShopManager : MonoBehaviour, IGameStateListener
     [SerializeField] private int rerollPrice;
     [SerializeField] private TextMeshProUGUI rerollPriceText;
 
+    [Header(" Actions ")]
+    public static Action onItemPurchased;
+
     private void Awake()
     {
         CurrencyManager.onUpdated += CurrencyUpdatedCallback;
@@ -38,13 +39,13 @@ public class ShopManager : MonoBehaviour, IGameStateListener
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void GameStateChangedCallBack(GameState gameState)
@@ -82,16 +83,16 @@ public class ShopManager : MonoBehaviour, IGameStateListener
         int weaponContainersCount = Random.Range(Mathf.Min(2, containersToAdd), containersToAdd);
         int objectContainerCount = containersToAdd - weaponContainersCount;
 
-        for (int i = 0; i< weaponContainersCount; i++)
+        for (int i = 0; i < weaponContainersCount; i++)
         {
-            var weaponContainerInstance =  Instantiate(shopItemContainerPrefab, containersParent);
+            var weaponContainerInstance = Instantiate(shopItemContainerPrefab, containersParent);
             var randomWeapon = ResourcesManager.GetRandomWeapon();
             weaponContainerInstance.Configure(randomWeapon, Random.Range(0, 2));
         }
 
-        for (int i = 0; i< objectContainerCount; i++)
+        for (int i = 0; i < objectContainerCount; i++)
         {
-            var objectContainerInstance =  Instantiate(shopItemContainerPrefab, containersParent);
+            var objectContainerInstance = Instantiate(shopItemContainerPrefab, containersParent);
 
             ObjectDataSO randomObject = ResourcesManager.GetRandomObject();
             Debug.Log(randomObject.name);
@@ -133,6 +134,8 @@ public class ShopManager : MonoBehaviour, IGameStateListener
         CurrencyManager.instance.UseCurrency(container.ObjectData.Price);
 
         Destroy(container.gameObject);
+
+        onItemPurchased?.Invoke();
     }
 
     private bool TryPurchaseWeapon(ShopItemContainer container, int weaponLevel)
@@ -144,6 +147,8 @@ public class ShopManager : MonoBehaviour, IGameStateListener
 
             Destroy(container.gameObject);
         }
+
+        onItemPurchased?.Invoke();
         return false;
     }
 }

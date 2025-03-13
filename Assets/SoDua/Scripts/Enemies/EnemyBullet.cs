@@ -26,14 +26,18 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        // Cancel any active tweens
+        LeanTween.cancel(gameObject);
+
+        // If colliding with player, deal damage
         if (collider.TryGetComponent(out Player player))
         {
-            LeanTween.cancel(gameObject);
             player.TakeDamage(damage);
-            this.collider.enabled = false;
-            rangeEnemyAttack.ReleaseBullet(this);
-
         }
+
+        // Disable collider and release bullet back to pool
+        this.collider.enabled = false;
+        rangeEnemyAttack.ReleaseBullet(this);
     }
 
     public void Shoot(int damage, Vector2 direction)

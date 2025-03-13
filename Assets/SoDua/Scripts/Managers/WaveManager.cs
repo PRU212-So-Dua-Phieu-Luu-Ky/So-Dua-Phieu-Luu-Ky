@@ -15,6 +15,7 @@ public class WaveManager : MonoBehaviour, IGameStateListener
 
     [Header(" Settings ")]
     [SerializeField] private float waveDuration;
+    private float timerBackup = 0;
 
     private float timer;
     private bool isTimerOn;
@@ -102,7 +103,14 @@ public class WaveManager : MonoBehaviour, IGameStateListener
             localCounters.Add(1);
         }
         isTimerOn = true;
-        timer = 0;
+        if (timerBackup > 0 && timerBackup < waveDuration)
+        {
+            timer = timerBackup;
+        }
+        else
+        {
+            timer = 0;
+        }
     }
 
     /// <summary>
@@ -168,6 +176,9 @@ public class WaveManager : MonoBehaviour, IGameStateListener
                 StartNextWave();
                 break;
             case GameState.WAVE_TRANSITION:
+                break;
+            case GameState.PAUSE:
+                timerBackup = timer;
                 break;
             case GameState.GAME_OVER:
                 isTimerOn = false;

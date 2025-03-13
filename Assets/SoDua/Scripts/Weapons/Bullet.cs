@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] private float moveSpeed;
     [SerializeField] private LayerMask enemyMask;
+    [SerializeField] private LayerMask playerMask;
     private Enemy target;
     private bool isCriticalHit;
 
@@ -56,8 +57,17 @@ public class Bullet : MonoBehaviour
             Attack(target);
             //this.collider.enabled = false;
             Release();
+        } else if (!IsInLayerMask(collider.gameObject.layer, playerMask))
+        {
+            CancelInvoke();
+            Release();
         } 
     }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+        
+    //}
 
     private void Attack(Enemy enemy)
     {

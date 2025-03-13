@@ -69,6 +69,7 @@ namespace Assets.Kawaii_Survivor.Scripts.Managers
 
         public static void GenerateStatContainers(Dictionary<Stat, float> statDictionary, Transform parent)
         {
+            parent.Clear();
             instance.GenerateContainers(statDictionary, parent);
         }
     }

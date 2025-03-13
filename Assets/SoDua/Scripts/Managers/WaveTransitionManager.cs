@@ -88,7 +88,6 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
     private void ShowObject()
     {
         // Count how many chest do we get
-        onChestDecrease?.Invoke();
 
         upgradeContainersParent.SetActive(false);
 
@@ -105,12 +104,14 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
     private void TakeButtonCallback(ObjectDataSO objectToTake)
     {
         playerObjects.AddObject(objectToTake);  // Add stats of chest intothe current player
+        onChestDecrease?.Invoke();
         TryOpenChest();                         // Open the next chest
     }
 
     private void RecycleButtonCallback(ObjectDataSO objectToRecycle)
     {
         CurrencyManager.instance.AddCurrency(objectToRecycle.RecyclePrice);
+        onChestDecrease?.Invoke();
         TryOpenChest();
     }
 

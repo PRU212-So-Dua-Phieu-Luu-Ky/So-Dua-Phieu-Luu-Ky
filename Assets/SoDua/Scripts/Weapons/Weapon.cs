@@ -8,17 +8,17 @@ public abstract class Weapon : MonoBehaviour, IPlayerStatDependency
     [SerializeField] protected float aimLerp;
 
     [Header("Settings")]
-    [SerializeField] protected float weaponRange;
+    protected float weaponRange;
     [SerializeField] protected LayerMask enemyMask;
 
     [Header("Attack")]
-    [SerializeField] protected int damage;
+    protected int damage;
 
     [Header("Critical")]
     protected int criticalChance;
     protected float criticalPercent;
 
-    [SerializeField] protected float attackDelay;
+    protected float attackDelay;
     protected float attackTimer;
 
     [Header("Level")]
@@ -95,5 +95,15 @@ public abstract class Weapon : MonoBehaviour, IPlayerStatDependency
         Level = targetLevel;
 
         ConfigureStats();
+    }
+
+    internal int GetRecyclePrice()
+    {
+        return WeaponStatsCalculator.GetRecyclePrice(WeaponData, Level);
+    }
+
+    internal void Upgrade()
+    {
+        UpgradeTo(Level + 1);
     }
 }

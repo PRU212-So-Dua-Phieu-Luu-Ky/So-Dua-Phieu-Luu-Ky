@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
@@ -14,6 +15,8 @@ public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
     [Header(" Data ")]
     [SerializeField] private WeaponDataSO[] weaponDatas;
 
+    //private HashSet<Data> existingWeapons = new HashSet<Data>();
+    private HashSet<WeaponDataSO> existingWeapons = new();
     private WeaponDataSO selectedWeapon;
     private int initialWeaponLevel;
 
@@ -62,7 +65,7 @@ public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
         weaponSelectionContainersParent.Clear();
 
         // Generate weapon containers
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3 && existingWeapons.Count < 3; i++)
         {
             GenerateSelectionWeaponContainer();
         }
@@ -70,14 +73,34 @@ public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
 
     private void GenerateSelectionWeaponContainer()
     {
+        var weaponLength = weaponDatas.Length;
+        if (existingWeapons.Count == weaponLength)
+        {
+            existingWeapons.Clear();
+        }
         WeaponSelectionContainer weaponSelectionContainerInstance
             = Instantiate(weaponSelectionContainerPrefab, weaponSelectionContainersParent);
 
-        // Get random weapon data injected from the inspector
-        WeaponDataSO weaponData = weaponDatas[UnityEngine.Random.Range(0, weaponDatas.Length)];
 
+        // Get random weapon data injected from the inspector
+        WeaponDataSO weaponData;
+        bool isAdded = false;
+        int level = 0;
+        do
+        {
+            //weaponData = weaponDatas[UnityEngine.Random.Range(0, weaponDatas.Length)];
+            //level = Random.Range(0, 4);
+            //var data = new Data(weaponData, weaponLength);
+            //isAdded = existingWeapons.Add(data);
+            weaponData = weaponDatas[UnityEngine.Random.Range(0, weaponDatas.Length)];
+            isAdded = existingWeapons.Add(weaponData);
+        } while (!isAdded);
+
+        if (!isAdded)
+        {
+            return;
+        }
         // Create instance based on weapon data so
-        int level = Random.Range(0, 4);
         weaponSelectionContainerInstance.Configure(weaponData, level);
 
         // Remove listeners and add the listener
@@ -102,6 +125,18 @@ public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
             {
                 container.Deselect();
             }
+        }
+    }
+
+    struct Data
+    {
+        WeaponDataSO weaponDataSO;
+        int level;
+
+        public Data(WeaponDataSO weaponDataSO, int level)
+        {
+            this.weaponDataSO = weaponDataSO;
+            this.level = level;
         }
     }
 }

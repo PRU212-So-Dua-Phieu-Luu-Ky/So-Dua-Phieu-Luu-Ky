@@ -10,7 +10,9 @@ public enum GameState
     SHOP,
     WEAPON_SELECTION,
     GAME_OVER,
-    STAGE_COMPLETE
+    STAGE_COMPLETE,
+    PAUSE,
+    TUTORIAL
 }
 public enum Stat
 {
