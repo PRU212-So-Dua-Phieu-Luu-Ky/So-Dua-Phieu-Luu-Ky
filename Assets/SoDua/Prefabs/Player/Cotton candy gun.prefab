@@ -102,12 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WeaponData>k__BackingField: {fileID: 11400000, guid: fb8ba640d626eb54f8b3d9591ad7469e, type: 2}
   aimLerp: 5
-  weaponRange: 8
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
-  damage: 5
-  attackDelay: 0.15
   bulletPrefab: {fileID: 3681728314954400431, guid: 203964d46a23afe4b9e0bead266bc50d, type: 3}
   shootingPoint: {fileID: 8835365490204917481}
   audioSource: {fileID: 6451370179311003003}
@@ -121,8 +118,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 49c4b69e919205e48a16d436d4151022, type: 3}
-  m_Resource: {fileID: 8300000, guid: 49c4b69e919205e48a16d436d4151022, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1201cbe9cef7355418011ca5b39f0dba, type: 3}
+  m_Resource: {fileID: 8300000, guid: 1201cbe9cef7355418011ca5b39f0dba, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
